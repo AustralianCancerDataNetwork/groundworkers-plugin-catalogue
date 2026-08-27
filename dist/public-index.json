@@ -135,7 +135,7 @@
         "slug": "AustralianCancerDataNetwork/omop-concept-grounding",
         "url": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
       "title": "OMOP Concept Grounding",
       "verification": {
