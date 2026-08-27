@@ -1,0 +1,53 @@
+name: Dispatch Groundworkers compatibility checks
+
+on:
+  workflow_dispatch:
+    inputs:
+      groundworkers_version:
+        description: Released Groundworkers version to test
+        required: true
+        default: 0.5.0
+  repository_dispatch:
+    types: [groundworkers-release]
+  schedule:
+    - cron: "17 2 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      include: ${{ steps.emit.outputs.include }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --dev
+      - id: emit
+        run: |
+          echo "include=$(uv run python scripts/validate_catalogue.py --matrix)" >> "$GITHUB_OUTPUT"
+
+  dispatch:
+    needs: matrix
+    if: ${{ needs.matrix.outputs.include != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.matrix.outputs.include) }}
+    steps:
+      - name: Request component compatibility run
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PLUGIN_DISPATCH_TOKEN }}
+          repository: ${{ matrix.repository }}
+          event-type: groundworkers-compatibility
+          client-payload: >-
+            {"groundworkers_version":"${{ inputs.groundworkers_version || github.event.client_payload.groundworkers_version || '0.5.0' }}",
+            "python_versions":${{ toJSON(matrix.python_versions) }},
+            "catalogue_id":"${{ matrix.id }}",
+            "test_profile":"${{ matrix.test_profile }}",
+            "requested_by":"groundworkers-plugin-catalogue"}

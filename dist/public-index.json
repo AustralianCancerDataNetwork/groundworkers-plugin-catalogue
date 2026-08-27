@@ -1,0 +1,202 @@
+{
+  "catalogue": {
+    "description": "Curated components that extend or support Groundworkers.",
+    "id": "groundworkers",
+    "target_groundworkers": "0.5.0",
+    "target_python": [
+      "3.12",
+      "3.13"
+    ],
+    "title": "Groundworkers Plugin Catalogue"
+  },
+  "plugins": [
+    {
+      "capabilities": [
+        "omop-vocabulary",
+        "concept-grounding",
+        "plugin-host"
+      ],
+      "compatibility": {
+        "groundworkers": null,
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "host",
+        "tested": []
+      },
+      "dependencies": [],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add groundworkers==0.5.0",
+        "name": "groundworkers",
+        "version": "0.5.0"
+      },
+      "id": "groundworkers",
+      "kind": "host",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/groundworkers",
+        "url": "https://github.com/AustralianCancerDataNetwork/groundworkers.git"
+      },
+      "status": "planned",
+      "summary": "MCP host for OMOP vocabulary, graph, embedding, and plugin capabilities.",
+      "title": "Groundworkers",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": null,
+        "workflow_file": null
+      },
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "prompt-registry",
+        "mcp-prompts",
+        "json-schema-validation"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.5,<0.6",
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.5.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "planned"
+          }
+        ]
+      },
+      "dependencies": [
+        "groundworkers"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add ohdsi-prompt-registry==0.1.0",
+        "name": "ohdsi-prompt-registry",
+        "version": "0.1.0"
+      },
+      "id": "ohdsi-prompt-registry",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/ohdsi-prompt-registry",
+        "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry.git"
+      },
+      "status": "planned",
+      "summary": "Registry and MCP discovery surface for reviewed OHDSI prompt workflows.",
+      "title": "OHDSI Prompt Registry",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions",
+        "workflow_file": "compatibility.yml"
+      },
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "concept-mapping",
+        "prompt-pack",
+        "structured-review"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.5,<0.6",
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "prompt-pack-install",
+        "tested": [
+          {
+            "groundworkers": "0.5.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "planned"
+          }
+        ]
+      },
+      "dependencies": [
+        "ohdsi-prompt-registry"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add omop-concept-grounding==0.1.0",
+        "name": "omop-concept-grounding",
+        "version": "0.1.0"
+      },
+      "id": "omop-concept-grounding",
+      "kind": "prompt-pack",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/omop-concept-grounding",
+        "url": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git"
+      },
+      "status": "planned",
+      "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
+      "title": "OMOP Concept Grounding",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions",
+        "workflow_file": "compatibility.yml"
+      },
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "comparator-recommendation",
+        "cohort-similarity",
+        "maintenance-preparation"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.5,<0.6",
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.5.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "planned"
+          }
+        ]
+      },
+      "dependencies": [
+        "groundworkers",
+        "omop-emb",
+        "omop-llm"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add comparator-recommender==0.1.0",
+        "name": "comparator-recommender",
+        "version": "0.1.0"
+      },
+      "id": "comparator-recommender",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/comparator-recommender",
+        "url": "https://github.com/AustralianCancerDataNetwork/comparator-recommender.git"
+      },
+      "status": "planned",
+      "summary": "Recommends pairwise comparator cohorts from a prepared catalogue.",
+      "title": "Comparator Recommender",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": "https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions",
+        "workflow_file": "compatibility.yml"
+      },
+      "visibility": "public"
+    }
+  ],
+  "schema_version": 1
+}

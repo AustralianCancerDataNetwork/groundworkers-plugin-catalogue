@@ -1,0 +1,21 @@
+name: Validate catalogue
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --dev
+      - run: uv run python scripts/validate_catalogue.py
+      - run: uv run python scripts/validate_catalogue.py --write-readme
+      - run: git diff --exit-code -- README.md dist

@@ -1,0 +1,219 @@
+schema_version: 1
+
+catalogue:
+  id: groundworkers
+  title: Groundworkers Plugin Catalogue
+  description: Curated components that extend or support Groundworkers.
+  target_groundworkers: 0.5.0
+  target_python: ["3.12", "3.13"]
+
+plugins:
+  - id: groundworkers
+    title: Groundworkers
+    summary: MCP host for OMOP vocabulary, graph, embedding, and plugin capabilities.
+    visibility: public
+    kind: host
+    status: planned
+    capabilities:
+      - omop-vocabulary
+      - concept-grounding
+      - plugin-host
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/groundworkers.git
+      slug: AustralianCancerDataNetwork/groundworkers
+      access: public
+    distribution:
+      channel: pypi
+      name: groundworkers
+      version: 0.5.0
+      install: uv add groundworkers==0.5.0
+    compatibility:
+      groundworkers: null
+      python: ">=3.12,<3.14"
+      test_profile: host
+      matrix_enabled: false
+      tested: []
+    dependencies: []
+    verification:
+      status: unverified
+      last_success: null
+      workflow: null
+      workflow_file: null
+
+  - id: ohdsi-prompt-registry
+    title: OHDSI Prompt Registry
+    summary: Registry and MCP discovery surface for reviewed OHDSI prompt workflows.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - prompt-registry
+      - mcp-prompts
+      - json-schema-validation
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry.git
+      slug: AustralianCancerDataNetwork/ohdsi-prompt-registry
+      access: public
+    distribution:
+      channel: pypi
+      name: ohdsi-prompt-registry
+      version: 0.1.0
+      install: uv add ohdsi-prompt-registry==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions
+      workflow_file: compatibility.yml
+
+  - id: omop-concept-grounding
+    title: OMOP Concept Grounding
+    summary: Reviewed prompt workflow and schemas for verified OMOP concept grounding.
+    visibility: public
+    kind: prompt-pack
+    status: released
+    capabilities:
+      - concept-mapping
+      - prompt-pack
+      - structured-review
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git
+      slug: AustralianCancerDataNetwork/omop-concept-grounding
+      access: public
+    distribution:
+      channel: pypi
+      name: omop-concept-grounding
+      version: 0.1.0
+      install: uv add omop-concept-grounding==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: prompt-pack-install
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - ohdsi-prompt-registry
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions
+      workflow_file: compatibility.yml
+
+  - id: comparator-recommender
+    title: Comparator Recommender
+    summary: Recommends pairwise comparator cohorts from a prepared catalogue.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - comparator-recommendation
+      - cohort-similarity
+      - maintenance-preparation
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/comparator-recommender.git
+      slug: AustralianCancerDataNetwork/comparator-recommender
+      access: public
+    distribution:
+      channel: pypi
+      name: comparator-recommender
+      version: 0.1.0
+      install: uv add comparator-recommender==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - omop-emb
+      - omop-llm
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions
+      workflow_file: compatibility.yml
+
+  - id: groundcrew-prompts
+    title: Groundcrew Prompt Packs
+    summary: Private filesystem prompt packs for Groundcrew review workflows.
+    visibility: private
+    kind: filesystem-pack
+    status: planned
+    capabilities:
+      - groundcrew-review
+      - domain-classification
+      - source-column-classification
+    repository:
+      url: git@github.com:AustralianCancerDataNetwork/groundcrew-prompts.git
+      slug: AustralianCancerDataNetwork/groundcrew-prompts
+      access: private
+    distribution: null
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: filesystem-pack
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - ohdsi-prompt-registry
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions
+      workflow_file: compatibility.yml
+
+  - id: cohort-workers
+    title: Cohort Workers
+    summary: Private Groundworkers plugin for OpenAtlas cohort definitions and concept references.
+    visibility: private
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - cohort-definitions
+      - cohort-concept-references
+    repository:
+      url: git@github.com:AustralianCancerDataNetwork/cohort-workers.git
+      slug: AustralianCancerDataNetwork/cohort-workers
+      access: private
+    distribution:
+      channel: git
+      name: cohort-workers
+      version: 0.1.0
+      install: uv add "cohort-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cohort-workers.git"
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - oa-cohorts
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/cohort-workers/actions
+      workflow_file: compatibility.yml
