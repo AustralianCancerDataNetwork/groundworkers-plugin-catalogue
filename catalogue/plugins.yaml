@@ -217,3 +217,39 @@ plugins:
       last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/cohort-workers/actions
       workflow_file: compatibility.yml
+
+  - id: ohdsi-onto-bridge
+    title: OHDSI Onto-Bridge
+    summary: Traverses external ontologies (BioPortal-hosted or local OBO files) alongside the core CDM/graph/emb services.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - ontology-traversal
+      - ontology-alignment
+      - external-omop-mapping
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git
+      slug: AustralianCancerDataNetwork/ohdsi-onto-bridge
+      access: public
+    distribution:
+      channel: pypi
+      name: ohdsi-onto-bridge
+      version: 0.1.0
+      install: uv add ohdsi-onto-bridge==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+    verification:
+      status: unverified
+      last_success: null
+      workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions
+      workflow_file: compatibility.yml
