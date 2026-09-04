@@ -234,9 +234,9 @@
       "id": "cqi-workers",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/cqi-workers",
-        "url": "https://github.com/AustralianCancerDataNetwork/cqi-workers.git"
+        "url": "git@github.com:AustralianCancerDataNetwork/cqi-workers.git"
       },
       "status": "planned",
       "summary": "Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.",
@@ -247,7 +247,7 @@
         "workflow": null,
         "workflow_file": null
       },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -289,55 +289,6 @@
         "last_success": null,
         "status": "unverified",
         "workflow": "https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions",
-        "workflow_file": "compatibility.yml"
-      },
-      "visibility": "private"
-    },
-    {
-      "capabilities": [
-        "cohort-definitions",
-        "cohort-concept-references"
-      ],
-      "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
-        "matrix_enabled": false,
-        "python": ">=3.12,<3.14",
-        "test_profile": "runtime-discovery",
-        "tested": [
-          {
-            "groundworkers": "0.5.0",
-            "python": [
-              "3.12",
-              "3.13"
-            ],
-            "status": "planned"
-          }
-        ]
-      },
-      "dependencies": [
-        "groundworkers",
-        "oa-cohorts"
-      ],
-      "distribution": {
-        "channel": "git",
-        "install": "uv add \"cohort-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cohort-workers.git\"",
-        "name": "cohort-workers",
-        "version": "0.1.0"
-      },
-      "id": "cohort-workers",
-      "kind": "runtime-plugin",
-      "repository": {
-        "access": "private",
-        "slug": "AustralianCancerDataNetwork/cohort-workers",
-        "url": "git@github.com:AustralianCancerDataNetwork/cohort-workers.git"
-      },
-      "status": "planned",
-      "summary": "Private Groundworkers plugin for OpenAtlas cohort definitions and concept references.",
-      "title": "Cohort Workers",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/cohort-workers/actions",
         "workflow_file": "compatibility.yml"
       },
       "visibility": "private"

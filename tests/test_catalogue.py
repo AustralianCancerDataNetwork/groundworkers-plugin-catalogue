@@ -28,7 +28,6 @@ def test_public_projection_contains_no_private_records() -> None:
         "omop-concept-grounding",
         "comparator-recommender",
         "ohdsi-onto-bridge",
-        "cqi-workers",
         "ohdsi-umls-bridge",
     }
 
@@ -52,5 +51,4 @@ def test_readme_contains_the_generated_status_table() -> None:
 
     assert "| Component | Visibility | Kind | Target version |" in readme
     assert "Groundcrew Prompt Packs" in readme
-    assert "Cohort Workers" in readme
     assert "actions/workflows/compatibility.yml/badge.svg" in readme

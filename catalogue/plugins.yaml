@@ -153,7 +153,7 @@ plugins:
   - id: cqi-workers
     title: CQI Workers
     summary: Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -162,9 +162,9 @@ plugins:
       - concept-lookup
       - prompt-pack
     repository:
-      url: https://github.com/AustralianCancerDataNetwork/cqi-workers.git
+      url: git@github.com:AustralianCancerDataNetwork/cqi-workers.git
       slug: AustralianCancerDataNetwork/cqi-workers
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: cqi-workers
@@ -219,42 +219,6 @@ plugins:
       status: unverified
       last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions
-      workflow_file: compatibility.yml
-
-  - id: cohort-workers
-    title: Cohort Workers
-    summary: Private Groundworkers plugin for OpenAtlas cohort definitions and concept references.
-    visibility: private
-    kind: runtime-plugin
-    status: planned
-    capabilities:
-      - cohort-definitions
-      - cohort-concept-references
-    repository:
-      url: git@github.com:AustralianCancerDataNetwork/cohort-workers.git
-      slug: AustralianCancerDataNetwork/cohort-workers
-      access: private
-    distribution:
-      channel: git
-      name: cohort-workers
-      version: 0.1.0
-      install: uv add "cohort-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cohort-workers.git"
-    compatibility:
-      groundworkers: ">=0.5,<0.6"
-      python: ">=3.12,<3.14"
-      test_profile: runtime-discovery
-      matrix_enabled: false
-      tested:
-        - groundworkers: 0.5.0
-          python: ["3.12", "3.13"]
-          status: planned
-    dependencies:
-      - groundworkers
-      - oa-cohorts
-    verification:
-      status: unverified
-      last_success: null
-      workflow: https://github.com/AustralianCancerDataNetwork/cohort-workers/actions
       workflow_file: compatibility.yml
 
   - id: ohdsi-onto-bridge

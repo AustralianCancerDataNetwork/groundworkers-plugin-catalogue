@@ -199,58 +199,6 @@
     },
     {
       "capabilities": [
-        "clinical-quality-indicators",
-        "cohort-configuration",
-        "concept-lookup",
-        "prompt-pack"
-      ],
-      "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
-        "matrix_enabled": false,
-        "python": ">=3.12,<3.14",
-        "test_profile": "runtime-discovery",
-        "tested": [
-          {
-            "groundworkers": "0.5.0",
-            "python": [
-              "3.12",
-              "3.13"
-            ],
-            "status": "planned"
-          }
-        ]
-      },
-      "dependencies": [
-        "groundworkers",
-        "oa-cohorts",
-        "oa-cohort-author"
-      ],
-      "distribution": {
-        "channel": "pypi",
-        "install": "uv add cqi-workers==0.1.0",
-        "name": "cqi-workers",
-        "version": "0.1.0"
-      },
-      "id": "cqi-workers",
-      "kind": "runtime-plugin",
-      "repository": {
-        "access": "public",
-        "slug": "AustralianCancerDataNetwork/cqi-workers",
-        "url": "https://github.com/AustralianCancerDataNetwork/cqi-workers.git"
-      },
-      "status": "planned",
-      "summary": "Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.",
-      "title": "CQI Workers",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": null,
-        "workflow_file": null
-      },
-      "visibility": "public"
-    },
-    {
-      "capabilities": [
         "ontology-traversal",
         "ontology-alignment",
         "external-omop-mapping"
