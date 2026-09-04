@@ -15,9 +15,11 @@ The table below is generated from the canonical catalogue. The status symbol is 
 | OHDSI Prompt Registry | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
 | OMOP Concept Grounding | public | prompt-pack | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
 | Comparator Recommender | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
+| CQI Workers | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
 | Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
 | Cohort Workers | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/cohort-workers/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/cohort-workers/actions) |
 | OHDSI Onto-Bridge | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
+| OHDSI UMLS Bridge | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
 <!-- END GENERATED PLUGIN STATUS -->
 
 The catalogue uses these component kinds:

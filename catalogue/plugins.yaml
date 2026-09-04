@@ -150,6 +150,45 @@ plugins:
       workflow: https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions
       workflow_file: compatibility.yml
 
+  - id: cqi-workers
+    title: CQI Workers
+    summary: Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - clinical-quality-indicators
+      - cohort-configuration
+      - concept-lookup
+      - prompt-pack
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/cqi-workers.git
+      slug: AustralianCancerDataNetwork/cqi-workers
+      access: public
+    distribution:
+      channel: pypi
+      name: cqi-workers
+      version: 0.1.0
+      install: uv add cqi-workers==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - oa-cohorts
+      - oa-cohort-author
+    verification:
+      status: unverified
+      last_success: null
+      workflow: null
+      workflow_file: null
+
   - id: groundcrew-prompts
     title: Groundcrew Prompt Packs
     summary: Private filesystem prompt packs for Groundcrew review workflows.
@@ -253,3 +292,41 @@ plugins:
       last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions
       workflow_file: compatibility.yml
+
+  - id: ohdsi-umls-bridge
+    title: OHDSI UMLS Bridge
+    summary: Groundworkers plugin for UMLS search, NCIt resolution, terminology crosswalks, and mapping guidance.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - umls-search
+      - ncit-resolution
+      - terminology-crosswalk
+      - mapping-guidance
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git
+      slug: AustralianCancerDataNetwork/ohdsi-umls-bridge
+      access: public
+    distribution:
+      channel: pypi
+      name: ohdsi-umls-bridge
+      version: 0.1.0
+      install: uv add ohdsi-umls-bridge==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - umls-python-client
+    verification:
+      status: unverified
+      last_success: null
+      workflow: null
+      workflow_file: null

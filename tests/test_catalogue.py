@@ -28,6 +28,8 @@ def test_public_projection_contains_no_private_records() -> None:
         "omop-concept-grounding",
         "comparator-recommender",
         "ohdsi-onto-bridge",
+        "cqi-workers",
+        "ohdsi-umls-bridge",
     }
 
 
