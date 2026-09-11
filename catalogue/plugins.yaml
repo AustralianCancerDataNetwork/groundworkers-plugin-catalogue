@@ -192,7 +192,7 @@ plugins:
   - id: pbs-mapper
     title: PBS Mapper
     summary: Deterministic PBS-to-OMOP mapping over the shared Groundstore contract.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -202,7 +202,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/pbs-mapper.git
       slug: AustralianCancerDataNetwork/pbs-mapper
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: pbs-mapper
@@ -231,7 +231,7 @@ plugins:
   - id: eviq-mapper
     title: eviQ Mapper
     summary: Planned Groundworkers plugin for mapping eviQ regimen extracts to hemonc OMOP regimens.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -241,7 +241,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/eviq-mapper.git
       slug: AustralianCancerDataNetwork/eviq-mapper
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: eviq-mapper
@@ -303,7 +303,7 @@ plugins:
   - id: ohdsi-onto-bridge
     title: OHDSI Onto-Bridge
     summary: Traverses external ontologies (BioPortal-hosted or local OBO files) alongside the core CDM/graph/emb services.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -313,7 +313,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git
       slug: AustralianCancerDataNetwork/ohdsi-onto-bridge
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: ohdsi-onto-bridge
@@ -339,7 +339,7 @@ plugins:
   - id: ohdsi-umls-bridge
     title: OHDSI UMLS Bridge
     summary: Groundworkers plugin for UMLS search, NCIt resolution, terminology crosswalks, and mapping guidance.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -350,7 +350,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git
       slug: AustralianCancerDataNetwork/ohdsi-umls-bridge
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: ohdsi-umls-bridge
