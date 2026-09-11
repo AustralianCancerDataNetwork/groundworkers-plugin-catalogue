@@ -1,22 +1,12 @@
 # Compatibility CI contract
 
-This document explains how component developers publish compatibility evidence and how component users should interpret it. The catalogue records declared support and recent verification, but the component repositories own the tests and the Groundworkers repository owns the reverse-install checks.
+This document explains how component developers publish compatibility evidence and how component users should interpret it. The catalogue records declared support, but the component repositories own the tests and the Groundworkers repository owns the reverse-install checks.
 
 ## What users should look for
 
-The `compatibility` section in a catalogue record is a declaration of intended support. The `verification` section is evidence produced by CI. A component is ready for normal use when its stated release is available, its required matrix has passed, and its verification is recent enough for the project's policy.
+The `compatibility` section in a catalogue record is a declaration of intended support: the Groundworkers/Python ranges a component targets, and — when set — `workflow` and `workflow_file`, which point at the component's own `compatibility.yml`. A component is ready for normal use when its stated release is available and its required matrix has passed.
 
-The status values have these meanings:
-
-| Status | Meaning |
-| --- | --- |
-| `unverified` | No release-compatible result has been recorded. |
-| `verified` | The declared required matrix passed recently. |
-| `stale` | A previous success exists, but it is older than the policy window. |
-| `failed` | The most recent required compatibility run failed. |
-| `unknown` | CI could not determine a reliable result. |
-
-The README status symbol is generated from `verification.status`. A GitHub Actions badge is generated when `verification.workflow_file` is set; it is a live view of the named workflow in the component repository. The badge and the catalogue symbol may differ briefly, so users should follow the workflow link for the detailed result.
+There is no separate catalogue-asserted pass/fail status. The single source of truth is the live GitHub Actions badge built from `workflow_file`; the catalogue does not cache or restate that result, so it can never drift out of sync with it. A component without a reachable workflow simply shows no badge in the README. Follow the workflow link for the detailed, current result.
 
 ## Component workflow
 
@@ -65,9 +55,9 @@ Private components may use an internal token and private package source for reve
 
 The catalogue README contains a generated table between the `BEGIN GENERATED PLUGIN STATUS` and `END GENERATED PLUGIN STATUS` markers. The refresh workflow rewrites that table and the generated indexes whenever the canonical catalogue changes.
 
-For a component with `verification.workflow_file`, the table includes a live badge at `https://github.com/{repository}/actions/workflows/{workflow_file}/badge.svg?branch=main`. The standard workflow filename is `compatibility.yml`. Components without a reachable workflow still receive a generated status symbol from `verification.status`.
+For a component with `compatibility.workflow_file`, the table includes a live badge at `https://github.com/{repository}/actions/workflows/{workflow_file}/badge.svg?branch=main`. The standard workflow filename is `compatibility.yml`. Components without a reachable workflow show no badge (`—`) in the CI status column instead.
 
-The badge is live, but the symbol is a catalogue assertion. A compatibility workflow should update `verification.status` through the agreed result-publication path only after the complete required matrix has passed. This prevents stale green evidence from being mistaken for current cross-version support.
+Note the badge is scoped to `?branch=main`: only a workflow run whose branch context is `main` (typically a scheduled run, or a direct push) counts for it. Runs triggered by `pull_request` or `push: tags` won't update this specific badge even though they did run — check the workflow's own Actions page for those.
 
 ## Release checklist
 
@@ -77,6 +67,6 @@ Before marking a component `released`:
 2. Confirm that the package depends on a released Groundworkers version rather than a development branch.
 3. Run the complete component compatibility matrix.
 4. Run the reverse-install check from Groundworkers CI.
-5. Record the result details and workflow URL in the catalogue verification data.
+5. Set `compatibility.workflow` and `compatibility.workflow_file` so the README badge picks up the component's own `compatibility.yml`.
 6. Set `status: released`, enable the matrix, regenerate `dist/`, and refresh the README.
 

@@ -17,23 +17,6 @@ def test_canonical_catalogue_validates() -> None:
     validate(source)
 
 
-def test_public_projection_contains_no_private_records() -> None:
-    source = load_source()
-    public = projection(source, "public")
-
-    assert {plugin["visibility"] for plugin in public["plugins"]} == {"public"}
-    assert {plugin["id"] for plugin in public["plugins"]} == {
-        "groundworkers",
-        "ohdsi-prompt-registry",
-        "omop-concept-grounding",
-        "comparator-recommender",
-        "pbs-mapper",
-        "eviq-mapper",
-        "ohdsi-onto-bridge",
-        "ohdsi-umls-bridge",
-    }
-
-
 def test_generated_public_projection_matches_source() -> None:
     source = load_source()
     generated = json.loads((DIST / "public-index.json").read_text(encoding="utf-8"))

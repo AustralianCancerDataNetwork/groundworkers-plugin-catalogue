@@ -11,16 +11,18 @@ The table below is generated from the canonical catalogue. The status symbol is 
 <!-- BEGIN GENERATED PLUGIN STATUS -->
 | Component | Visibility | Kind | Target version | Groundworkers compatibility | CI status |
 | --- | --- | --- | --- | --- | --- |
-| Groundworkers | public | host | `0.5.0` | `host` | ⏳ unverified |
-| OHDSI Prompt Registry | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
-| OMOP Concept Grounding | public | prompt-pack | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
-| Comparator Recommender | public | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
-| CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
-| PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
-| eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
-| Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
-| OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
-| OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | ⏳ unverified |
+| Groundworkers | public | host | `0.5.0` | `host` | — |
+| Groundskeeping | public | host | `0.8.1` | `host` | — |
+| Groundstore | public | host | `0.1.0` | `host` | — |
+| OHDSI Prompt Registry | public | runtime-plugin | `0.2.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
+| OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
+| Comparator Recommender | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
+| CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
+| PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
+| eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
+| Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
+| OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
+| OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
 <!-- END GENERATED PLUGIN STATUS -->
 
 The catalogue uses these component kinds:

@@ -21,7 +21,9 @@
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "host",
-        "tested": []
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [],
       "distribution": {
@@ -40,12 +42,74 @@
       "status": "released",
       "summary": "MCP host for OMOP vocabulary, graph, embedding, and plugin capabilities.",
       "title": "Groundworkers",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "operator-shell",
+        "configuration-browser",
+        "telemetry-primitives"
+      ],
+      "compatibility": {
+        "groundworkers": null,
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "host",
+        "tested": [],
         "workflow": null,
         "workflow_file": null
       },
+      "dependencies": [],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add groundskeeping==0.8.1",
+        "name": "groundskeeping",
+        "version": "0.8.1"
+      },
+      "id": "groundskeeping",
+      "kind": "host",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/groundskeeping",
+        "url": "https://github.com/AustralianCancerDataNetwork/groundskeeping.git"
+      },
+      "status": "released",
+      "summary": "Reusable Textual operator shell, workbench, configuration browser, and telemetry primitives shared across host and plugin UIs.",
+      "title": "Groundskeeping",
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "mapping-task-contracts",
+        "mapping-persistence",
+        "decision-provenance"
+      ],
+      "compatibility": {
+        "groundworkers": null,
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "host",
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
+      },
+      "dependencies": [],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add groundstore==0.1.0",
+        "name": "groundstore",
+        "version": "0.1.0"
+      },
+      "id": "groundstore",
+      "kind": "host",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/groundstore",
+        "url": "https://github.com/AustralianCancerDataNetwork/groundstore.git"
+      },
+      "status": "released",
+      "summary": "Shared mapping-task contracts and resumable persistence for Groundworkers-adjacent mapping workflows.",
+      "title": "Groundstore",
       "visibility": "public"
     },
     {
@@ -68,16 +132,18 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers"
       ],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add ohdsi-prompt-registry==0.1.0",
+        "install": "uv add ohdsi-prompt-registry==0.2.0",
         "name": "ohdsi-prompt-registry",
-        "version": "0.1.0"
+        "version": "0.2.0"
       },
       "id": "ohdsi-prompt-registry",
       "kind": "runtime-plugin",
@@ -86,15 +152,9 @@
         "slug": "AustralianCancerDataNetwork/ohdsi-prompt-registry",
         "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Registry and MCP discovery surface for reviewed OHDSI prompt workflows.",
       "title": "OHDSI Prompt Registry",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions",
-        "workflow_file": "compatibility.yml"
-      },
       "visibility": "public"
     },
     {
@@ -117,7 +177,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "ohdsi-prompt-registry"
@@ -131,20 +193,14 @@
       "id": "omop-concept-grounding",
       "kind": "prompt-pack",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/omop-concept-grounding",
         "url": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git"
       },
       "status": "planned",
       "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
       "title": "OMOP Concept Grounding",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions",
-        "workflow_file": "compatibility.yml"
-      },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -166,7 +222,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": "https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers",
@@ -182,20 +240,14 @@
       "id": "comparator-recommender",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/comparator-recommender",
         "url": "https://github.com/AustralianCancerDataNetwork/comparator-recommender.git"
       },
       "status": "planned",
       "summary": "Recommends pairwise comparator cohorts from a prepared catalogue.",
       "title": "Comparator Recommender",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions",
-        "workflow_file": "compatibility.yml"
-      },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -218,7 +270,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [
         "groundworkers",
@@ -241,12 +295,6 @@
       "status": "planned",
       "summary": "Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.",
       "title": "CQI Workers",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": null,
-        "workflow_file": null
-      },
       "visibility": "private"
     },
     {
@@ -269,7 +317,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [
         "groundworkers",
@@ -293,12 +343,6 @@
       "status": "planned",
       "summary": "Deterministic PBS-to-OMOP mapping over the shared Groundstore contract.",
       "title": "PBS Mapper",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": null,
-        "workflow_file": null
-      },
       "visibility": "private"
     },
     {
@@ -321,7 +365,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [
         "groundworkers",
@@ -346,12 +392,6 @@
       "status": "planned",
       "summary": "Planned Groundworkers plugin for mapping eviQ regimen extracts to hemonc OMOP regimens.",
       "title": "eviQ Mapper",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": null,
-        "workflow_file": null
-      },
       "visibility": "private"
     },
     {
@@ -374,7 +414,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": "https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "ohdsi-prompt-registry"
@@ -390,12 +432,6 @@
       "status": "planned",
       "summary": "Private filesystem prompt packs for Groundcrew review workflows.",
       "title": "Groundcrew Prompt Packs",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions",
-        "workflow_file": "compatibility.yml"
-      },
       "visibility": "private"
     },
     {
@@ -418,7 +454,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers"
@@ -439,12 +477,6 @@
       "status": "planned",
       "summary": "Traverses external ontologies (BioPortal-hosted or local OBO files) alongside the core CDM/graph/emb services.",
       "title": "OHDSI Onto-Bridge",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions",
-        "workflow_file": "compatibility.yml"
-      },
       "visibility": "private"
     },
     {
@@ -468,7 +500,9 @@
             ],
             "status": "planned"
           }
-        ]
+        ],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [
         "groundworkers",
@@ -490,12 +524,6 @@
       "status": "planned",
       "summary": "Groundworkers plugin for UMLS search, NCIt resolution, terminology crosswalks, and mapping guidance.",
       "title": "OHDSI UMLS Bridge",
-      "verification": {
-        "last_success": null,
-        "status": "unverified",
-        "workflow": null,
-        "workflow_file": null
-      },
       "visibility": "private"
     }
   ],

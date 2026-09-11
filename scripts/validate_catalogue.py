@@ -21,14 +21,6 @@ README = ROOT / "README.md"
 README_START = "<!-- BEGIN GENERATED PLUGIN STATUS -->"
 README_END = "<!-- END GENERATED PLUGIN STATUS -->"
 
-STATUS_SYMBOLS = {
-    "verified": "✅",
-    "failed": "❌",
-    "stale": "⚠️",
-    "unverified": "⏳",
-    "unknown": "❔",
-}
-
 
 def load_source() -> dict[str, Any]:
     with SOURCE.open(encoding="utf-8") as handle:
@@ -61,8 +53,6 @@ def validate(source: dict[str, Any]) -> None:
             raise ValueError(f"{plugin['id']}: filesystem packs must not have a distribution")
         if plugin["kind"] != "filesystem-pack" and plugin["distribution"] is None:
             raise ValueError(f"{plugin['id']}: non-filesystem components need a distribution")
-        if plugin["status"] != "released" and plugin["verification"]["status"] == "verified":
-            raise ValueError(f"{plugin['id']}: an unreleased component cannot be verified")
         if plugin["compatibility"]["matrix_enabled"] and plugin["status"] != "released":
             raise ValueError(f"{plugin['id']}: matrix testing requires a released component")
 
@@ -103,23 +93,19 @@ def compatibility_matrix(source: dict[str, Any]) -> dict[str, Any]:
 
 
 def readme_status(plugin: dict[str, Any]) -> str:
-    verification = plugin["verification"]
-    symbol = STATUS_SYMBOLS[verification["status"]]
-    status = f"{symbol} {verification['status']}"
-
-    workflow_file = verification["workflow_file"]
-    workflow = verification["workflow"]
+    compatibility = plugin["compatibility"]
+    workflow_file = compatibility["workflow_file"]
+    workflow = compatibility["workflow"]
     if workflow_file and workflow:
         slug = plugin["repository"]["slug"]
         badge = (
             f"https://github.com/{slug}/actions/workflows/"
             f"{workflow_file}/badge.svg?branch=main"
         )
-        badge_link = f"[![compatibility]({badge})]({workflow})"
-        status = f"{status} {badge_link}"
-    elif workflow:
-        status = f"[{status}]({workflow})"
-    return status
+        return f"[![compatibility]({badge})]({workflow})"
+    if workflow:
+        return f"[compatibility]({workflow})"
+    return "—"
 
 
 def render_status_table(source: dict[str, Any]) -> str:

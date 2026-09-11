@@ -33,19 +33,74 @@ plugins:
       test_profile: host
       matrix_enabled: false
       tested: []
-    dependencies: []
-    verification:
-      status: unverified
-      last_success: null
       workflow: null
       workflow_file: null
+    dependencies: []
+
+  - id: groundskeeping
+    title: Groundskeeping
+    summary: Reusable Textual operator shell, workbench, configuration browser, and telemetry primitives shared across host and plugin UIs.
+    visibility: public
+    kind: host
+    status: released
+    capabilities:
+      - operator-shell
+      - configuration-browser
+      - telemetry-primitives
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/groundskeeping.git
+      slug: AustralianCancerDataNetwork/groundskeeping
+      access: public
+    distribution:
+      channel: pypi
+      name: groundskeeping
+      version: 0.8.1
+      install: uv add groundskeeping==0.8.1
+    compatibility:
+      groundworkers: null
+      python: ">=3.12,<3.14"
+      test_profile: host
+      matrix_enabled: false
+      tested: []
+      workflow: null
+      workflow_file: null
+    dependencies: []
+
+  - id: groundstore
+    title: Groundstore
+    summary: Shared mapping-task contracts and resumable persistence for Groundworkers-adjacent mapping workflows.
+    visibility: public
+    kind: host
+    status: released
+    capabilities:
+      - mapping-task-contracts
+      - mapping-persistence
+      - decision-provenance
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/groundstore.git
+      slug: AustralianCancerDataNetwork/groundstore
+      access: public
+    distribution:
+      channel: pypi
+      name: groundstore
+      version: 0.1.0
+      install: uv add groundstore==0.1.0
+    compatibility:
+      groundworkers: null
+      python: ">=3.12,<3.14"
+      test_profile: host
+      matrix_enabled: false
+      tested: []
+      workflow: null
+      workflow_file: null
+    dependencies: []
 
   - id: ohdsi-prompt-registry
     title: OHDSI Prompt Registry
     summary: Registry and MCP discovery surface for reviewed OHDSI prompt workflows.
     visibility: public
     kind: runtime-plugin
-    status: planned
+    status: released
     capabilities:
       - prompt-registry
       - mcp-prompts
@@ -57,8 +112,8 @@ plugins:
     distribution:
       channel: pypi
       name: ohdsi-prompt-registry
-      version: 0.1.0
-      install: uv add ohdsi-prompt-registry==0.1.0
+      version: 0.2.0
+      install: uv add ohdsi-prompt-registry==0.2.0
     compatibility:
       groundworkers: ">=0.5,<0.6"
       python: ">=3.12,<3.14"
@@ -68,18 +123,15 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
-    dependencies:
-      - groundworkers
-    verification:
-      status: unverified
-      last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions
       workflow_file: compatibility.yml
+    dependencies:
+      - groundworkers
 
   - id: omop-concept-grounding
     title: OMOP Concept Grounding
     summary: Reviewed prompt workflow and schemas for verified OMOP concept grounding.
-    visibility: public
+    visibility: private
     kind: prompt-pack
     status: planned
     capabilities:
@@ -89,7 +141,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git
       slug: AustralianCancerDataNetwork/omop-concept-grounding
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: omop-concept-grounding
@@ -104,18 +156,15 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
-    dependencies:
-      - ohdsi-prompt-registry
-    verification:
-      status: unverified
-      last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions
       workflow_file: compatibility.yml
+    dependencies:
+      - ohdsi-prompt-registry
 
   - id: comparator-recommender
     title: Comparator Recommender
     summary: Recommends pairwise comparator cohorts from a prepared catalogue.
-    visibility: public
+    visibility: private
     kind: runtime-plugin
     status: planned
     capabilities:
@@ -125,7 +174,7 @@ plugins:
     repository:
       url: https://github.com/AustralianCancerDataNetwork/comparator-recommender.git
       slug: AustralianCancerDataNetwork/comparator-recommender
-      access: public
+      access: private
     distribution:
       channel: pypi
       name: comparator-recommender
@@ -140,15 +189,12 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
+      workflow: https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions
+      workflow_file: compatibility.yml
     dependencies:
       - groundworkers
       - omop-emb
       - omop-llm
-    verification:
-      status: unverified
-      last_success: null
-      workflow: https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions
-      workflow_file: compatibility.yml
 
   - id: cqi-workers
     title: CQI Workers
@@ -179,15 +225,12 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
+      workflow: null
+      workflow_file: null
     dependencies:
       - groundworkers
       - oa-cohorts
       - oa-cohort-author
-    verification:
-      status: unverified
-      last_success: null
-      workflow: null
-      workflow_file: null
 
   - id: pbs-mapper
     title: PBS Mapper
@@ -217,16 +260,13 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
+      workflow: null
+      workflow_file: null
     dependencies:
       - groundworkers
       - groundstore
       - pbs-client
       - oa-configurator
-    verification:
-      status: unverified
-      last_success: null
-      workflow: null
-      workflow_file: null
 
   - id: eviq-mapper
     title: eviQ Mapper
@@ -256,17 +296,14 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
+      workflow: null
+      workflow_file: null
     dependencies:
       - groundworkers
       - groundstore
       - eviq-digest
       - hemonc-alchemy
       - oa-configurator
-    verification:
-      status: unverified
-      last_success: null
-      workflow: null
-      workflow_file: null
 
   - id: groundcrew-prompts
     title: Groundcrew Prompt Packs
@@ -292,13 +329,10 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
-    dependencies:
-      - ohdsi-prompt-registry
-    verification:
-      status: unverified
-      last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions
       workflow_file: compatibility.yml
+    dependencies:
+      - ohdsi-prompt-registry
 
   - id: ohdsi-onto-bridge
     title: OHDSI Onto-Bridge
@@ -328,13 +362,10 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
-    dependencies:
-      - groundworkers
-    verification:
-      status: unverified
-      last_success: null
       workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions
       workflow_file: compatibility.yml
+    dependencies:
+      - groundworkers
 
   - id: ohdsi-umls-bridge
     title: OHDSI UMLS Bridge
@@ -365,11 +396,8 @@ plugins:
         - groundworkers: 0.5.0
           python: ["3.12", "3.13"]
           status: planned
+      workflow: null
+      workflow_file: null
     dependencies:
       - groundworkers
       - umls-python-client
-    verification:
-      status: unverified
-      last_success: null
-      workflow: null
-      workflow_file: null
