@@ -13,7 +13,7 @@ plugins:
     summary: MCP host for OMOP vocabulary, graph, embedding, and plugin capabilities.
     visibility: public
     kind: host
-    status: planned
+    status: released
     capabilities:
       - omop-vocabulary
       - concept-grounding
@@ -81,7 +81,7 @@ plugins:
     summary: Reviewed prompt workflow and schemas for verified OMOP concept grounding.
     visibility: public
     kind: prompt-pack
-    status: released
+    status: planned
     capabilities:
       - concept-mapping
       - prompt-pack
@@ -183,6 +183,85 @@ plugins:
       - groundworkers
       - oa-cohorts
       - oa-cohort-author
+    verification:
+      status: unverified
+      last_success: null
+      workflow: null
+      workflow_file: null
+
+  - id: pbs-mapper
+    title: PBS Mapper
+    summary: Deterministic PBS-to-OMOP mapping over the shared Groundstore contract.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - pbs-mapping
+      - omop-mapping
+      - mapping-review
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/pbs-mapper.git
+      slug: AustralianCancerDataNetwork/pbs-mapper
+      access: public
+    distribution:
+      channel: pypi
+      name: pbs-mapper
+      version: 0.1.0
+      install: uv add pbs-mapper==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - groundstore
+      - pbs-client
+      - oa-configurator
+    verification:
+      status: unverified
+      last_success: null
+      workflow: null
+      workflow_file: null
+
+  - id: eviq-mapper
+    title: eviQ Mapper
+    summary: Planned Groundworkers plugin for mapping eviQ regimen extracts to hemonc OMOP regimens.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - eviq-regimen-mapping
+      - hemonc-mapping
+      - mapping-review
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/eviq-mapper.git
+      slug: AustralianCancerDataNetwork/eviq-mapper
+      access: public
+    distribution:
+      channel: pypi
+      name: eviq-mapper
+      version: 0.1.0
+      install: uv add eviq-mapper==0.1.0
+    compatibility:
+      groundworkers: ">=0.5,<0.6"
+      python: ">=3.12,<3.14"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.5.0
+          python: ["3.12", "3.13"]
+          status: planned
+    dependencies:
+      - groundworkers
+      - groundstore
+      - eviq-digest
+      - hemonc-alchemy
+      - oa-configurator
     verification:
       status: unverified
       last_success: null

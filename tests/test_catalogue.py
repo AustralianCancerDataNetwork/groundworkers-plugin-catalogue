@@ -27,6 +27,8 @@ def test_public_projection_contains_no_private_records() -> None:
         "ohdsi-prompt-registry",
         "omop-concept-grounding",
         "comparator-recommender",
+        "pbs-mapper",
+        "eviq-mapper",
         "ohdsi-onto-bridge",
         "ohdsi-umls-bridge",
     }

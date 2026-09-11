@@ -37,7 +37,7 @@
         "slug": "AustralianCancerDataNetwork/groundworkers",
         "url": "https://github.com/AustralianCancerDataNetwork/groundworkers.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "MCP host for OMOP vocabulary, graph, embedding, and plugin capabilities.",
       "title": "Groundworkers",
       "verification": {
@@ -135,7 +135,7 @@
         "slug": "AustralianCancerDataNetwork/omop-concept-grounding",
         "url": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git"
       },
-      "status": "released",
+      "status": "planned",
       "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
       "title": "OMOP Concept Grounding",
       "verification": {
@@ -248,6 +248,111 @@
         "workflow_file": null
       },
       "visibility": "private"
+    },
+    {
+      "capabilities": [
+        "pbs-mapping",
+        "omop-mapping",
+        "mapping-review"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.5,<0.6",
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.5.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "planned"
+          }
+        ]
+      },
+      "dependencies": [
+        "groundworkers",
+        "groundstore",
+        "pbs-client",
+        "oa-configurator"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add pbs-mapper==0.1.0",
+        "name": "pbs-mapper",
+        "version": "0.1.0"
+      },
+      "id": "pbs-mapper",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/pbs-mapper",
+        "url": "https://github.com/AustralianCancerDataNetwork/pbs-mapper.git"
+      },
+      "status": "planned",
+      "summary": "Deterministic PBS-to-OMOP mapping over the shared Groundstore contract.",
+      "title": "PBS Mapper",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": null,
+        "workflow_file": null
+      },
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "eviq-regimen-mapping",
+        "hemonc-mapping",
+        "mapping-review"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.5,<0.6",
+        "matrix_enabled": false,
+        "python": ">=3.12,<3.14",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.5.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "planned"
+          }
+        ]
+      },
+      "dependencies": [
+        "groundworkers",
+        "groundstore",
+        "eviq-digest",
+        "hemonc-alchemy",
+        "oa-configurator"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add eviq-mapper==0.1.0",
+        "name": "eviq-mapper",
+        "version": "0.1.0"
+      },
+      "id": "eviq-mapper",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "AustralianCancerDataNetwork/eviq-mapper",
+        "url": "https://github.com/AustralianCancerDataNetwork/eviq-mapper.git"
+      },
+      "status": "planned",
+      "summary": "Planned Groundworkers plugin for mapping eviQ regimen extracts to hemonc OMOP regimens.",
+      "title": "eviQ Mapper",
+      "verification": {
+        "last_success": null,
+        "status": "unverified",
+        "workflow": null,
+        "workflow_file": null
+      },
+      "visibility": "public"
     },
     {
       "capabilities": [
