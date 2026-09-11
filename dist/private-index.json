@@ -286,7 +286,7 @@
       "id": "pbs-mapper",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/pbs-mapper",
         "url": "https://github.com/AustralianCancerDataNetwork/pbs-mapper.git"
       },
@@ -299,7 +299,7 @@
         "workflow": null,
         "workflow_file": null
       },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -339,7 +339,7 @@
       "id": "eviq-mapper",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/eviq-mapper",
         "url": "https://github.com/AustralianCancerDataNetwork/eviq-mapper.git"
       },
@@ -352,7 +352,7 @@
         "workflow": null,
         "workflow_file": null
       },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -432,7 +432,7 @@
       "id": "ohdsi-onto-bridge",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/ohdsi-onto-bridge",
         "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git"
       },
@@ -445,7 +445,7 @@
         "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions",
         "workflow_file": "compatibility.yml"
       },
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -483,7 +483,7 @@
       "id": "ohdsi-umls-bridge",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "public",
+        "access": "private",
         "slug": "AustralianCancerDataNetwork/ohdsi-umls-bridge",
         "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git"
       },
@@ -496,7 +496,7 @@
         "workflow": null,
         "workflow_file": null
       },
-      "visibility": "public"
+      "visibility": "private"
     }
   ],
   "schema_version": 1
