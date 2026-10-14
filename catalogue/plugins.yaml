@@ -118,7 +118,7 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
@@ -151,7 +151,7 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: prompt-pack-install
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
@@ -184,7 +184,7 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
@@ -220,13 +220,13 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
-      workflow: null
-      workflow_file: null
+      workflow: https://github.com/AustralianCancerDataNetwork/cqi-workers/actions
+      workflow_file: compatibility.yml
     dependencies:
       - groundworkers
       - oa-cohorts
@@ -255,7 +255,7 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
@@ -358,7 +358,7 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
@@ -392,13 +392,13 @@ plugins:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
-      matrix_enabled: false
+      matrix_enabled: true
       tested:
         - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
-      workflow: null
-      workflow_file: null
+      workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions
+      workflow_file: compatibility.yml
     dependencies:
       - groundworkers
       - umls-python-client

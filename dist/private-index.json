@@ -120,7 +120,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -165,7 +165,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "prompt-pack-install",
         "tested": [
@@ -210,7 +210,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -258,7 +258,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -271,8 +271,8 @@
             "status": "planned"
           }
         ],
-        "workflow": null,
-        "workflow_file": null
+        "workflow": "https://github.com/AustralianCancerDataNetwork/cqi-workers/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers",
@@ -305,7 +305,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -443,7 +443,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -489,7 +489,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
@@ -502,8 +502,8 @@
             "status": "planned"
           }
         ],
-        "workflow": null,
-        "workflow_file": null
+        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers",

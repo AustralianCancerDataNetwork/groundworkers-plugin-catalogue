@@ -46,7 +46,7 @@ jobs:
           repository: ${{ matrix.repository }}
           event-type: groundworkers-compatibility
           client-payload: >-
-            {"groundworkers_version":"${{ inputs.groundworkers_version || github.event.client_payload.groundworkers_version || '0.5.0' }}",
+            {"groundworkers_version":"${{ inputs.groundworkers_version || github.event.client_payload.groundworkers_version || '0.7.1' }}",
             "python_versions":${{ toJSON(matrix.python_versions) }},
             "catalogue_id":"${{ matrix.id }}",
             "test_profile":"${{ matrix.test_profile }}",

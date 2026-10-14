@@ -24,10 +24,16 @@ def test_generated_public_projection_matches_source() -> None:
     assert generated == projection(source, "public")
 
 
-def test_initial_compatibility_matrix_is_not_enabled_before_release() -> None:
+def test_compatibility_matrix_only_includes_enabled_components_with_workflows() -> None:
     source = load_source()
+    include = compatibility_matrix(source)["include"]
 
-    assert compatibility_matrix(source)["include"] == []
+    assert include
+    by_id = {plugin["id"]: plugin for plugin in source["plugins"]}
+    for entry in include:
+        compatibility = by_id[entry["id"]]["compatibility"]
+        assert compatibility["matrix_enabled"]
+        assert compatibility["workflow_file"]
 
 
 def test_readme_contains_the_generated_status_table() -> None:

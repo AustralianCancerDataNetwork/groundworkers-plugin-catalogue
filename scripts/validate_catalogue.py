@@ -58,8 +58,16 @@ def validate(source: dict[str, Any]) -> None:
             raise ValueError(
                 f"{plugin['id']}: private components must not use the public pypi channel"
             )
-        if plugin["compatibility"]["matrix_enabled"] and plugin["status"] != "released":
-            raise ValueError(f"{plugin['id']}: matrix testing requires a released component")
+        compatibility = plugin["compatibility"]
+        if (
+            compatibility["matrix_enabled"]
+            and plugin["status"] != "released"
+            and not compatibility["workflow_file"]
+        ):
+            raise ValueError(
+                f"{plugin['id']}: matrix testing requires a released component "
+                "or a declared compatibility workflow"
+            )
 
 
 def projection(source: dict[str, Any], visibility: str) -> dict[str, Any]:

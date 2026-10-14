@@ -120,7 +120,7 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
+        "matrix_enabled": true,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [

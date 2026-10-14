@@ -1,6 +1,91 @@
 {
   "groundworkers": "0.7.1",
-  "include": [],
+  "include": [
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "ohdsi-prompt-registry",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/ohdsi-prompt-registry",
+      "test_profile": "runtime-discovery"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "omop-concept-grounding",
+      "kind": "prompt-pack",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/omop-concept-grounding",
+      "test_profile": "prompt-pack-install"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "comparator-recommender",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/comparator-recommender",
+      "test_profile": "runtime-discovery"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "cqi-workers",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/cqi-workers",
+      "test_profile": "runtime-discovery"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "pbs-mapper",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/pbs-mapper",
+      "test_profile": "runtime-discovery"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "ohdsi-onto-bridge",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/ohdsi-onto-bridge",
+      "test_profile": "runtime-discovery"
+    },
+    {
+      "groundworkers": ">=0.7.1,<1.0",
+      "id": "ohdsi-umls-bridge",
+      "kind": "runtime-plugin",
+      "python": ">=3.12,<3.14",
+      "python_versions": [
+        "3.12",
+        "3.13"
+      ],
+      "repository": "AustralianCancerDataNetwork/ohdsi-umls-bridge",
+      "test_profile": "runtime-discovery"
+    }
+  ],
   "python": [
     "3.12",
     "3.13"
