@@ -11,8 +11,8 @@ The table below is generated from the canonical catalogue. The status symbol is 
 <!-- BEGIN GENERATED PLUGIN STATUS -->
 | Component | Visibility | Kind | Target version | Groundworkers compatibility | CI status |
 | --- | --- | --- | --- | --- | --- |
-| Groundworkers | public | host | `0.5.0` | `host` | — |
-| Groundskeeping | public | host | `0.8.1` | `host` | — |
+| Groundworkers | public | host | `0.7.1` | `host` | — |
+| Groundskeeping | public | host | `0.9.1` | `host` | — |
 | Groundstore | public | host | `0.5.0` | `host` | — |
 | OHDSI Prompt Registry | public | runtime-plugin | `0.3.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
 | OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |

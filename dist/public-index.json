@@ -28,9 +28,9 @@
       "dependencies": [],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add groundworkers==0.5.0",
+        "install": "uv add groundworkers==0.7.1",
         "name": "groundworkers",
-        "version": "0.5.0"
+        "version": "0.7.1"
       },
       "id": "groundworkers",
       "kind": "host",
@@ -62,9 +62,9 @@
       "dependencies": [],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add groundskeeping==0.8.1",
+        "install": "uv add groundskeeping==0.9.1",
         "name": "groundskeeping",
-        "version": "0.8.1"
+        "version": "0.9.1"
       },
       "id": "groundskeeping",
       "kind": "host",
