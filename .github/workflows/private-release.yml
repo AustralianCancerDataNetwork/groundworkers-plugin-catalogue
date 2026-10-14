@@ -1,0 +1,64 @@
+name: Private Release
+# Reusable workflow for private components: verifies the tag is on main, builds
+# the wheel and sdist, and publishes them as a GitHub Release. Nothing is
+# uploaded to PyPI and no secrets are needed (uses the caller's GITHUB_TOKEN).
+#
+# Caller (in the component repo):
+#   on: { push: { tags: ['v*'] } }
+#   jobs:
+#     release:
+#       permissions: { contents: write }
+#       uses: AustralianCancerDataNetwork/groundworkers-plugin-catalogue/.github/workflows/private-release.yml@main
+#
+# This repo must allow access from other repositories in the organisation
+# (Settings > Actions > General > Access).
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: Python version used to build the wheel
+        type: string
+        default: '3.12'
+        required: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.ref_name }}
+      REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Verify tag is on main
+        run: |
+          if ! git branch -r --contains "$TAG" | grep -q "origin/main"; then
+            echo "Tag $TAG is not reachable from origin/main. Aborting."
+            exit 1
+          fi
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      - name: Build
+        run: uv build
+
+      - name: Create or publish the GitHub Release
+        run: |
+          # release-drafter may already hold a draft for this tag
+          if [ -n "$(gh release list --repo "$REPO" --json tagName,isDraft \
+                --jq ".[] | select(.tagName==\"$TAG\" and .isDraft) | .tagName")" ]; then
+            gh release edit "$TAG" --repo "$REPO" --draft=false --latest
+          elif ! gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
+            gh release create "$TAG" --repo "$REPO" --verify-tag --generate-notes --latest
+          fi
+
+      - name: Attach distributions
+        run: gh release upload "$TAG" dist/* --repo "$REPO" --clobber

@@ -13,16 +13,16 @@ The table below is generated from the canonical catalogue. The status symbol is 
 | --- | --- | --- | --- | --- | --- |
 | Groundworkers | public | host | `0.5.0` | `host` | — |
 | Groundskeeping | public | host | `0.8.1` | `host` | — |
-| Groundstore | public | host | `0.1.0` | `host` | — |
-| OHDSI Prompt Registry | public | runtime-plugin | `0.2.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
-| OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
-| Comparator Recommender | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
-| CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
-| PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
-| eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
-| Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
-| OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
-| OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.5,<0.6` | — |
+| Groundstore | public | host | `0.5.0` | `host` | — |
+| OHDSI Prompt Registry | public | runtime-plugin | `0.3.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
+| OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
+| Comparator Recommender | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
+| CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
+| PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions) |
+| eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
+| Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
+| OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
+| OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
 <!-- END GENERATED PLUGIN STATUS -->
 
 The catalogue uses these component kinds:
@@ -65,6 +65,7 @@ Add one record to [`catalogue/plugins.yaml`](catalogue/plugins.yaml) for each pu
 - Set `visibility` to `public` only when the source and installation path can be disclosed to public users; use `private` for internal components.
 - Classify the component as `runtime-plugin`, `prompt-pack`, or `filesystem-pack`. Use `host` only for Groundworkers itself.
 - Record the source repository, distribution channel, released version, install command, capabilities, dependencies, and declared Groundworkers/Python ranges.
+- Use `distribution.channel: pypi` for public components only. Private components use `channel: git`: each `v*` tag builds the wheel and sdist, publishes them as a GitHub Release (via the reusable [`private-release.yml`](.github/workflows/private-release.yml) in this repo), and installs with `uv add "<name> @ git+ssh://git@github.com/<org>/<repo>.git@v<version>"`. The validator rejects `pypi` for private records.
 - Set `status: released` only when users can obtain the stated version. Keep future work as `planned`.
 - Leave `verification.status` as `unverified` until the required compatibility matrix has passed.
 

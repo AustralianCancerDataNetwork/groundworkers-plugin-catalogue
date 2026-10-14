@@ -53,6 +53,11 @@ def validate(source: dict[str, Any]) -> None:
             raise ValueError(f"{plugin['id']}: filesystem packs must not have a distribution")
         if plugin["kind"] != "filesystem-pack" and plugin["distribution"] is None:
             raise ValueError(f"{plugin['id']}: non-filesystem components need a distribution")
+        dist = plugin["distribution"]
+        if private and dist is not None and dist["channel"] == "pypi":
+            raise ValueError(
+                f"{plugin['id']}: private components must not use the public pypi channel"
+            )
         if plugin["compatibility"]["matrix_enabled"] and plugin["status"] != "released":
             raise ValueError(f"{plugin['id']}: matrix testing requires a released component")
 
