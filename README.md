@@ -36,15 +36,19 @@ The catalogue uses these component kinds:
 
 ### Install a public component
 
-Use the installation command shown in the component's catalogue record. For the planned public Python distributions, the normal form is:
+Use the installation command shown in the component's catalogue record. Public components install from PyPI:
 
 ```bash
-uv add groundworkers==0.5.0
-uv add ohdsi-prompt-registry==0.1.0
-uv add omop-concept-grounding==0.1.0
-uv add comparator-recommender==0.1.0
-uv add pbs-mapper==0.1.0
-uv add eviq-mapper==0.1.0
+uv add groundworkers==0.7.1
+uv add ohdsi-prompt-registry==0.3.0
+```
+
+### Install a private component
+
+Private components are not on PyPI. Each `v*` tag publishes a GitHub Release, and the record's `install` field installs from that tag over SSH, so you need access to the component repository:
+
+```bash
+uv add "pbs-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/pbs-mapper.git@v0.1.0"
 ```
 
 Install the host and any desired components into the same environment. After installation, configure the component according to its own README, start Groundworkers, and use `groundworkers --describe` to confirm that the package was discovered and whether it is active.
@@ -77,7 +81,7 @@ For a public component, add the repository and package metadata to the canonical
 
 ## Current release set
 
-The initial records target Groundworkers `0.5.0` and Python `3.12`/`3.13`.
+The records target Groundworkers `0.7.1` and Python `3.12`/`3.13`. Components marked `planned` have no release recorded yet: their ranges are declared, and their compatibility is shown by the live workflow badge.
 
 ## Repository layout
 

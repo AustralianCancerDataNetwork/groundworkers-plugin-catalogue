@@ -16,7 +16,7 @@ The catalogue sends a payload like this:
 
 ```json
 {
-  "groundworkers_version": "0.5.0",
+  "groundworkers_version": "0.7.1",
   "python_versions": ["3.12", "3.13"],
   "catalogue_id": "comparator-recommender",
   "test_profile": "runtime-discovery",
@@ -43,7 +43,7 @@ The component repository owns its detailed matrix. The catalogue owns the list o
 
 Do not run the full Cartesian matrix on every pull request unless the component is small enough to make that practical. A minimum/latest/main smoke matrix on pull requests and the complete matrix on release candidates gives fast feedback without weakening the release gate.
 
-The initial catalogue targets Groundworkers `0.5.0` and Python `3.12`/`3.13`. The listed records keep `matrix_enabled: false` because these are planned releases. Set it to `true` only after the package is published and its component workflow is ready to receive dispatch events.
+The catalogue targets Groundworkers `0.7.1` and Python `3.12`/`3.13`. Set `matrix_enabled: true` for a record when its repository has a `compatibility.yml` that accepts dispatch events. A released component qualifies automatically; a `planned` one qualifies only if it declares a `workflow_file`. Without that workflow, a dispatch is accepted by GitHub but runs nothing.
 
 ## Reverse validation
 
