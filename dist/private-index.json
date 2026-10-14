@@ -2,7 +2,7 @@
   "catalogue": {
     "description": "Curated components that extend or support Groundworkers.",
     "id": "groundworkers",
-    "target_groundworkers": "0.5.0",
+    "target_groundworkers": "0.7.1",
     "target_python": [
       "3.12",
       "3.13"
@@ -96,9 +96,9 @@
       "dependencies": [],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add groundstore==0.1.0",
+        "install": "uv add groundstore==0.5.0",
         "name": "groundstore",
-        "version": "0.1.0"
+        "version": "0.5.0"
       },
       "id": "groundstore",
       "kind": "host",
@@ -119,13 +119,13 @@
         "json-schema-validation"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -141,9 +141,9 @@
       ],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add ohdsi-prompt-registry==0.2.0",
+        "install": "uv add ohdsi-prompt-registry==0.3.0",
         "name": "ohdsi-prompt-registry",
-        "version": "0.2.0"
+        "version": "0.3.0"
       },
       "id": "ohdsi-prompt-registry",
       "kind": "runtime-plugin",
@@ -164,13 +164,13 @@
         "structured-review"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "prompt-pack-install",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -185,8 +185,8 @@
         "ohdsi-prompt-registry"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add omop-concept-grounding==0.1.0",
+        "channel": "git",
+        "install": "uv add \"omop-concept-grounding @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-concept-grounding.git@v0.1.0\"",
         "name": "omop-concept-grounding",
         "version": "0.1.0"
       },
@@ -209,13 +209,13 @@
         "maintenance-preparation"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -232,8 +232,8 @@
         "omop-llm"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add comparator-recommender==0.1.0",
+        "channel": "git",
+        "install": "uv add \"comparator-recommender @ git+ssh://git@github.com/AustralianCancerDataNetwork/comparator-recommender.git@v0.1.0\"",
         "name": "comparator-recommender",
         "version": "0.1.0"
       },
@@ -257,13 +257,13 @@
         "prompt-pack"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -280,8 +280,8 @@
         "oa-cohort-author"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add cqi-workers==0.1.0",
+        "channel": "git",
+        "install": "uv add \"cqi-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cqi-workers.git@v0.1.0\"",
         "name": "cqi-workers",
         "version": "0.1.0"
       },
@@ -304,13 +304,13 @@
         "mapping-review"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -318,18 +318,19 @@
             "status": "planned"
           }
         ],
-        "workflow": null,
-        "workflow_file": null
+        "workflow": "https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions",
+        "workflow_file": "compatibility.yml"
       },
       "dependencies": [
         "groundworkers",
         "groundstore",
         "pbs-client",
-        "oa-configurator"
+        "oa-configurator",
+        "ohdsi-prompt-registry"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add pbs-mapper==0.1.0",
+        "channel": "git",
+        "install": "uv add \"pbs-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/pbs-mapper.git@v0.1.0\"",
         "name": "pbs-mapper",
         "version": "0.1.0"
       },
@@ -352,13 +353,13 @@
         "mapping-review"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -377,8 +378,8 @@
         "oa-configurator"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add eviq-mapper==0.1.0",
+        "channel": "git",
+        "install": "uv add \"eviq-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/eviq-mapper.git@v0.1.0\"",
         "name": "eviq-mapper",
         "version": "0.1.0"
       },
@@ -401,13 +402,13 @@
         "source-column-classification"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "filesystem-pack",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -441,13 +442,13 @@
         "external-omop-mapping"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -462,8 +463,8 @@
         "groundworkers"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add ohdsi-onto-bridge==0.1.0",
+        "channel": "git",
+        "install": "uv add \"ohdsi-onto-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git@v0.1.0\"",
         "name": "ohdsi-onto-bridge",
         "version": "0.1.0"
       },
@@ -487,13 +488,13 @@
         "mapping-guidance"
       ],
       "compatibility": {
-        "groundworkers": ">=0.5,<0.6",
+        "groundworkers": ">=0.7.1,<1.0",
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.5.0",
+            "groundworkers": "0.7.1",
             "python": [
               "3.12",
               "3.13"
@@ -509,8 +510,8 @@
         "umls-python-client"
       ],
       "distribution": {
-        "channel": "pypi",
-        "install": "uv add ohdsi-umls-bridge==0.1.0",
+        "channel": "git",
+        "install": "uv add \"ohdsi-umls-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git@v0.1.0\"",
         "name": "ohdsi-umls-bridge",
         "version": "0.1.0"
       },

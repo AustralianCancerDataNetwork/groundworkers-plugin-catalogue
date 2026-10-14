@@ -4,7 +4,7 @@ catalogue:
   id: groundworkers
   title: Groundworkers Plugin Catalogue
   description: Curated components that extend or support Groundworkers.
-  target_groundworkers: 0.5.0
+  target_groundworkers: 0.7.1
   target_python: ["3.12", "3.13"]
 
 plugins:
@@ -83,8 +83,8 @@ plugins:
     distribution:
       channel: pypi
       name: groundstore
-      version: 0.1.0
-      install: uv add groundstore==0.1.0
+      version: 0.5.0
+      install: uv add groundstore==0.5.0
     compatibility:
       groundworkers: null
       python: ">=3.12,<3.14"
@@ -112,15 +112,15 @@ plugins:
     distribution:
       channel: pypi
       name: ohdsi-prompt-registry
-      version: 0.2.0
-      install: uv add ohdsi-prompt-registry==0.2.0
+      version: 0.3.0
+      install: uv add ohdsi-prompt-registry==0.3.0
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions
@@ -143,17 +143,17 @@ plugins:
       slug: AustralianCancerDataNetwork/omop-concept-grounding
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: omop-concept-grounding
       version: 0.1.0
-      install: uv add omop-concept-grounding==0.1.0
+      install: uv add "omop-concept-grounding @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-concept-grounding.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: prompt-pack-install
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions
@@ -176,17 +176,17 @@ plugins:
       slug: AustralianCancerDataNetwork/comparator-recommender
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: comparator-recommender
       version: 0.1.0
-      install: uv add comparator-recommender==0.1.0
+      install: uv add "comparator-recommender @ git+ssh://git@github.com/AustralianCancerDataNetwork/comparator-recommender.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions
@@ -212,17 +212,17 @@ plugins:
       slug: AustralianCancerDataNetwork/cqi-workers
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: cqi-workers
       version: 0.1.0
-      install: uv add cqi-workers==0.1.0
+      install: uv add "cqi-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cqi-workers.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: null
@@ -247,26 +247,27 @@ plugins:
       slug: AustralianCancerDataNetwork/pbs-mapper
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: pbs-mapper
       version: 0.1.0
-      install: uv add pbs-mapper==0.1.0
+      install: uv add "pbs-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/pbs-mapper.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
-      workflow: null
-      workflow_file: null
+      workflow: https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions
+      workflow_file: compatibility.yml
     dependencies:
       - groundworkers
       - groundstore
       - pbs-client
       - oa-configurator
+      - ohdsi-prompt-registry
 
   - id: eviq-mapper
     title: eviQ Mapper
@@ -283,17 +284,17 @@ plugins:
       slug: AustralianCancerDataNetwork/eviq-mapper
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: eviq-mapper
       version: 0.1.0
-      install: uv add eviq-mapper==0.1.0
+      install: uv add "eviq-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/eviq-mapper.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: null
@@ -321,12 +322,12 @@ plugins:
       access: private
     distribution: null
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: filesystem-pack
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions
@@ -349,17 +350,17 @@ plugins:
       slug: AustralianCancerDataNetwork/ohdsi-onto-bridge
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: ohdsi-onto-bridge
       version: 0.1.0
-      install: uv add ohdsi-onto-bridge==0.1.0
+      install: uv add "ohdsi-onto-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions
@@ -383,17 +384,17 @@ plugins:
       slug: AustralianCancerDataNetwork/ohdsi-umls-bridge
       access: private
     distribution:
-      channel: pypi
+      channel: git
       name: ohdsi-umls-bridge
       version: 0.1.0
-      install: uv add ohdsi-umls-bridge==0.1.0
+      install: uv add "ohdsi-umls-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git@v0.1.0"
     compatibility:
-      groundworkers: ">=0.5,<0.6"
+      groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
       test_profile: runtime-discovery
       matrix_enabled: false
       tested:
-        - groundworkers: 0.5.0
+        - groundworkers: 0.7.1
           python: ["3.12", "3.13"]
           status: planned
       workflow: null
