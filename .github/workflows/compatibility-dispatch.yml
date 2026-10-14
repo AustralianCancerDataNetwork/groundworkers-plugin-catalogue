@@ -6,7 +6,7 @@ on:
       groundworkers_version:
         description: Released Groundworkers version to test
         required: true
-        default: 0.5.0
+        default: 0.7.1
   repository_dispatch:
     types: [groundworkers-release]
   schedule:
