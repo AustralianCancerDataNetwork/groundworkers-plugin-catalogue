@@ -2,7 +2,7 @@
   "catalogue": {
     "description": "Curated components that extend or support Groundworkers.",
     "id": "groundworkers",
-    "target_groundworkers": "0.7.1",
+    "target_groundworkers": "0.8.0",
     "target_python": [
       "3.12",
       "3.13"
@@ -28,9 +28,9 @@
       "dependencies": [],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add groundworkers==0.7.1",
+        "install": "uv add groundworkers==0.8.0",
         "name": "groundworkers",
-        "version": "0.7.1"
+        "version": "0.8.0"
       },
       "id": "groundworkers",
       "kind": "host",
@@ -141,9 +141,9 @@
       ],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add ohdsi-prompt-registry==0.3.0",
+        "install": "uv add ohdsi-prompt-registry==0.4.0",
         "name": "ohdsi-prompt-registry",
-        "version": "0.3.0"
+        "version": "0.4.0"
       },
       "id": "ohdsi-prompt-registry",
       "kind": "runtime-plugin",

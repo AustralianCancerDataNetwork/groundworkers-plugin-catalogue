@@ -1,5 +1,5 @@
 {
-  "groundworkers": "0.7.1",
+  "groundworkers": "0.8.0",
   "include": [
     {
       "groundworkers": ">=0.7.1,<1.0",

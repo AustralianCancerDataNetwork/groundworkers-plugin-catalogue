@@ -6,7 +6,7 @@ on:
       groundworkers_version:
         description: Released Groundworkers version to test
         required: true
-        default: 0.7.1
+        default: 0.8.0
   repository_dispatch:
     types: [groundworkers-release]
   schedule:
@@ -46,7 +46,7 @@ jobs:
           repository: ${{ matrix.repository }}
           event-type: groundworkers-compatibility
           client-payload: >-
-            {"groundworkers_version":"${{ inputs.groundworkers_version || github.event.client_payload.groundworkers_version || '0.7.1' }}",
+            {"groundworkers_version":"${{ inputs.groundworkers_version || github.event.client_payload.groundworkers_version || '0.8.0' }}",
             "python_versions":${{ toJSON(matrix.python_versions) }},
             "catalogue_id":"${{ matrix.id }}",
             "test_profile":"${{ matrix.test_profile }}",
