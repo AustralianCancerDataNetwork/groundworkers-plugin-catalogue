@@ -112,8 +112,8 @@ plugins:
     distribution:
       channel: pypi
       name: ohdsi-prompt-registry
-      version: 0.4.0
-      install: uv add ohdsi-prompt-registry==0.4.0
+      version: 0.5.0
+      install: uv add ohdsi-prompt-registry==0.5.0
     compatibility:
       groundworkers: ">=0.7.1,<1.0"
       python: ">=3.12,<3.14"
@@ -127,6 +127,40 @@ plugins:
       workflow_file: compatibility.yml
     dependencies:
       - groundworkers
+
+  - id: phenotype-validate
+    title: Phenotype Validate
+    summary: Read-only Circe cohort validation, Markdown rendering, SQL text generation, and phenotype-shape classification via OHDSI Circepy.
+    visibility: private
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - cohort-validation
+      - cohort-rendering
+      - cohort-sql-generation
+      - phenotype-shapes
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/phenotype-validate.git
+      slug: AustralianCancerDataNetwork/phenotype-validate
+      access: private
+    distribution:
+      channel: git
+      name: phenotype-validate
+      version: 0.1.0
+      install: uv add "phenotype-validate @ git+ssh://git@github.com/AustralianCancerDataNetwork/phenotype-validate.git@v0.1.0"
+    compatibility:
+      groundworkers: ">=0.7,<1"
+      python: ">=3.12"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested: []
+      workflow: null
+      workflow_file: null
+    dependencies:
+      - groundworkers
+      - oa-configurator
+      - pydantic
+      - ohdsi-circepy
 
   - id: omop-concept-grounding
     title: OMOP Concept Grounding
@@ -158,6 +192,37 @@ plugins:
           status: planned
       workflow: https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions
       workflow_file: compatibility.yml
+    dependencies:
+      - ohdsi-prompt-registry
+
+  - id: omop-phenotype-design
+    title: OMOP Phenotype Design
+    summary: Content-only phenotype-design prompt pack for Circe cohort design and review with explicit shape decisions and validation handoffs.
+    visibility: private
+    kind: prompt-pack
+    status: planned
+    capabilities:
+      - phenotype-design
+      - phenotype-review
+      - prompt-pack
+      - forced-decisions
+    repository:
+      url: https://github.com/AustralianCancerDataNetwork/omop-phenotype-design.git
+      slug: AustralianCancerDataNetwork/omop-phenotype-design
+      access: private
+    distribution:
+      channel: git
+      name: omop-phenotype-design
+      version: 0.1.0
+      install: uv add "omop-phenotype-design @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-phenotype-design.git@v0.1.0"
+    compatibility:
+      groundworkers: ">=0.7,<1"
+      python: ">=3.12"
+      test_profile: prompt-pack-install
+      matrix_enabled: false
+      tested: []
+      workflow: null
+      workflow_file: null
     dependencies:
       - ohdsi-prompt-registry
 

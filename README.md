@@ -14,8 +14,10 @@ The table below is generated from the canonical catalogue. The status symbol is 
 | Groundworkers | public | host | `0.8.0` | `host` | — |
 | Groundskeeping | public | host | `0.9.1` | `host` | — |
 | Groundstore | public | host | `0.5.0` | `host` | — |
-| OHDSI Prompt Registry | public | runtime-plugin | `0.4.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
+| OHDSI Prompt Registry | public | runtime-plugin | `0.5.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
+| Phenotype Validate | private | runtime-plugin | `0.1.0` | `>=0.7,<1` | — |
 | OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
+| OMOP Phenotype Design | private | prompt-pack | `0.1.0` | `>=0.7,<1` | — |
 | Comparator Recommender | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
 | CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions) |
 | PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions) |
@@ -82,6 +84,14 @@ For a public component, add the repository and package metadata to the canonical
 ## Current release set
 
 The records target Groundworkers `0.7.1` and Python `3.12`/`3.13`. Components marked `planned` have no release recorded yet: their ranges are declared, and their compatibility is shown by the live workflow badge.
+
+### Planned phenotype components
+
+`phenotype-validate` is a private runtime plugin for Circe validation, rendering, SQL text generation, and structural shape classification. `omop-phenotype-design` is a content-only distribution providing the `phenotype-design` prompt pack through the OHDSI Prompt Registry.
+
+The design pack requires registry **0.5.0 or newer**. Its design/review workflow also needs the validator's `phenotype_validate_validate`, `phenotype_validate_render`, and `phenotype_validate_shape` tools, alongside Groundworkers concept and knowledge tools. The validator is a workflow requirement, not a Python dependency of the content pack.
+
+Both entries target an initial `0.1.0` release; their tag-based installation commands are future release targets. The design repository is provisionally listed as private at `AustralianCancerDataNetwork/omop-phenotype-design`, pending creation or confirmation. Compatibility dispatch remains disabled for both until their repositories provide the required workflow.
 
 ## Repository layout
 

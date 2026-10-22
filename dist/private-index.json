@@ -141,9 +141,9 @@
       ],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add ohdsi-prompt-registry==0.4.0",
+        "install": "uv add ohdsi-prompt-registry==0.5.0",
         "name": "ohdsi-prompt-registry",
-        "version": "0.4.0"
+        "version": "0.5.0"
       },
       "id": "ohdsi-prompt-registry",
       "kind": "runtime-plugin",
@@ -156,6 +156,46 @@
       "summary": "Registry and MCP discovery surface for reviewed OHDSI prompt workflows.",
       "title": "OHDSI Prompt Registry",
       "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "cohort-validation",
+        "cohort-rendering",
+        "cohort-sql-generation",
+        "phenotype-shapes"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.7,<1",
+        "matrix_enabled": false,
+        "python": ">=3.12",
+        "test_profile": "runtime-discovery",
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
+      },
+      "dependencies": [
+        "groundworkers",
+        "oa-configurator",
+        "pydantic",
+        "ohdsi-circepy"
+      ],
+      "distribution": {
+        "channel": "git",
+        "install": "uv add \"phenotype-validate @ git+ssh://git@github.com/AustralianCancerDataNetwork/phenotype-validate.git@v0.1.0\"",
+        "name": "phenotype-validate",
+        "version": "0.1.0"
+      },
+      "id": "phenotype-validate",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "private",
+        "slug": "AustralianCancerDataNetwork/phenotype-validate",
+        "url": "https://github.com/AustralianCancerDataNetwork/phenotype-validate.git"
+      },
+      "status": "planned",
+      "summary": "Read-only Circe cohort validation, Markdown rendering, SQL text generation, and phenotype-shape classification via OHDSI Circepy.",
+      "title": "Phenotype Validate",
+      "visibility": "private"
     },
     {
       "capabilities": [
@@ -200,6 +240,43 @@
       "status": "planned",
       "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
       "title": "OMOP Concept Grounding",
+      "visibility": "private"
+    },
+    {
+      "capabilities": [
+        "phenotype-design",
+        "phenotype-review",
+        "prompt-pack",
+        "forced-decisions"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.7,<1",
+        "matrix_enabled": false,
+        "python": ">=3.12",
+        "test_profile": "prompt-pack-install",
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
+      },
+      "dependencies": [
+        "ohdsi-prompt-registry"
+      ],
+      "distribution": {
+        "channel": "git",
+        "install": "uv add \"omop-phenotype-design @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-phenotype-design.git@v0.1.0\"",
+        "name": "omop-phenotype-design",
+        "version": "0.1.0"
+      },
+      "id": "omop-phenotype-design",
+      "kind": "prompt-pack",
+      "repository": {
+        "access": "private",
+        "slug": "AustralianCancerDataNetwork/omop-phenotype-design",
+        "url": "https://github.com/AustralianCancerDataNetwork/omop-phenotype-design.git"
+      },
+      "status": "planned",
+      "summary": "Content-only phenotype-design prompt pack for Circe cohort design and review with explicit shape decisions and validation handoffs.",
+      "title": "OMOP Phenotype Design",
       "visibility": "private"
     },
     {
