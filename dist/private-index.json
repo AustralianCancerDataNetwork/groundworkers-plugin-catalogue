@@ -474,46 +474,6 @@
     },
     {
       "capabilities": [
-        "groundcrew-review",
-        "domain-classification",
-        "source-column-classification"
-      ],
-      "compatibility": {
-        "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": false,
-        "python": ">=3.12,<3.14",
-        "test_profile": "filesystem-pack",
-        "tested": [
-          {
-            "groundworkers": "0.7.1",
-            "python": [
-              "3.12",
-              "3.13"
-            ],
-            "status": "planned"
-          }
-        ],
-        "workflow": "https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions",
-        "workflow_file": "compatibility.yml"
-      },
-      "dependencies": [
-        "ohdsi-prompt-registry"
-      ],
-      "distribution": null,
-      "id": "groundcrew-prompts",
-      "kind": "filesystem-pack",
-      "repository": {
-        "access": "private",
-        "slug": "AustralianCancerDataNetwork/groundcrew-prompts",
-        "url": "git@github.com:AustralianCancerDataNetwork/groundcrew-prompts.git"
-      },
-      "status": "planned",
-      "summary": "Private filesystem prompt packs for Groundcrew review workflows.",
-      "title": "Groundcrew Prompt Packs",
-      "visibility": "private"
-    },
-    {
-      "capabilities": [
         "ontology-traversal",
         "ontology-alignment",
         "external-omop-mapping"

@@ -371,35 +371,6 @@ plugins:
       - hemonc-alchemy
       - oa-configurator
 
-  - id: groundcrew-prompts
-    title: Groundcrew Prompt Packs
-    summary: Private filesystem prompt packs for Groundcrew review workflows.
-    visibility: private
-    kind: filesystem-pack
-    status: planned
-    capabilities:
-      - groundcrew-review
-      - domain-classification
-      - source-column-classification
-    repository:
-      url: git@github.com:AustralianCancerDataNetwork/groundcrew-prompts.git
-      slug: AustralianCancerDataNetwork/groundcrew-prompts
-      access: private
-    distribution: null
-    compatibility:
-      groundworkers: ">=0.7.1,<1.0"
-      python: ">=3.12,<3.14"
-      test_profile: filesystem-pack
-      matrix_enabled: false
-      tested:
-        - groundworkers: 0.7.1
-          python: ["3.12", "3.13"]
-          status: planned
-      workflow: https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions
-      workflow_file: compatibility.yml
-    dependencies:
-      - ohdsi-prompt-registry
-
   - id: ohdsi-onto-bridge
     title: OHDSI Onto-Bridge
     summary: Traverses external ontologies (BioPortal-hosted or local OBO files) alongside the core CDM/graph/emb services.

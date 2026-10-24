@@ -22,7 +22,6 @@ The table below is generated from the canonical catalogue. The status symbol is 
 | CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions) |
 | PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions) |
 | eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
-| Groundcrew Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/groundcrew-prompts/actions) |
 | OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
 | OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions) |
 <!-- END GENERATED PLUGIN STATUS -->
@@ -91,7 +90,7 @@ The records target Groundworkers `0.7.1` and Python `3.12`/`3.13`. Components ma
 
 The design pack requires registry **0.5.0 or newer**. Its design/review workflow also needs the validator's `phenotype_validate_validate`, `phenotype_validate_render`, and `phenotype_validate_shape` tools, alongside Groundworkers concept and knowledge tools. The validator is a workflow requirement, not a Python dependency of the content pack.
 
-Both entries target an initial `0.1.0` release; their tag-based installation commands are future release targets. The design repository is provisionally listed as private at `AustralianCancerDataNetwork/omop-phenotype-design`, pending creation or confirmation. Compatibility dispatch remains disabled for both until their repositories provide the required workflow.
+Both entries target an initial `0.1.0` release; their tag-based installation commands are future release targets. The design pack is planned for the private repository `AustralianCancerDataNetwork/omop-phenotype-design`. Compatibility dispatch remains disabled for both until their repositories provide the required workflow.
 
 ## Repository layout
 
