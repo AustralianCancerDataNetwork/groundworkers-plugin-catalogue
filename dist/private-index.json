@@ -2,7 +2,7 @@
   "catalogue": {
     "description": "Curated components that extend or support Groundworkers.",
     "id": "groundworkers",
-    "target_groundworkers": "0.8.0",
+    "target_groundworkers": "0.10.0",
     "target_python": [
       "3.12",
       "3.13"
@@ -28,9 +28,9 @@
       "dependencies": [],
       "distribution": {
         "channel": "pypi",
-        "install": "uv add groundworkers==0.8.0",
+        "install": "uv add groundworkers==0.10.0",
         "name": "groundworkers",
-        "version": "0.8.0"
+        "version": "0.10.0"
       },
       "id": "groundworkers",
       "kind": "host",
@@ -125,7 +125,7 @@
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -181,20 +181,20 @@
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"phenotype-validate @ git+ssh://git@github.com/AustralianCancerDataNetwork/phenotype-validate.git@v0.1.0\"",
-        "name": "phenotype-validate",
+        "install": "Access on request",
+        "name": "circe-cohort-check",
         "version": "0.1.0"
       },
-      "id": "phenotype-validate",
+      "id": "circe-cohort-check",
       "kind": "runtime-plugin",
       "repository": {
         "access": "private",
-        "slug": "AustralianCancerDataNetwork/phenotype-validate",
-        "url": "https://github.com/AustralianCancerDataNetwork/phenotype-validate.git"
+        "slug": "AustralianCancerDataNetwork/circe-cohort-check",
+        "url": "https://github.com/AustralianCancerDataNetwork/circe-cohort-check.git"
       },
       "status": "planned",
       "summary": "Read-only Circe cohort validation, Markdown rendering, SQL text generation, and phenotype-shape classification via OHDSI Circepy.",
-      "title": "Phenotype Validate",
+      "title": "Circe Cohort Definition Check",
       "visibility": "private"
     },
     {
@@ -210,7 +210,7 @@
         "test_profile": "prompt-pack-install",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -225,27 +225,27 @@
         "ohdsi-prompt-registry"
       ],
       "distribution": {
-        "channel": "git",
-        "install": "uv add \"omop-concept-grounding @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-concept-grounding.git@v0.1.0\"",
+        "channel": "pypi",
+        "install": "uv add omop-concept-grounding==0.3.1",
         "name": "omop-concept-grounding",
-        "version": "0.1.0"
+        "version": "0.3.1"
       },
       "id": "omop-concept-grounding",
       "kind": "prompt-pack",
       "repository": {
-        "access": "private",
+        "access": "public",
         "slug": "AustralianCancerDataNetwork/omop-concept-grounding",
         "url": "https://github.com/AustralianCancerDataNetwork/omop-concept-grounding.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Reviewed prompt workflow and schemas for verified OMOP concept grounding.",
       "title": "OMOP Concept Grounding",
-      "visibility": "private"
+      "visibility": "public"
     },
     {
       "capabilities": [
-        "phenotype-design",
-        "phenotype-review",
+        "cohort-shape-design",
+        "cohort-shape-review",
         "prompt-pack",
         "forced-decisions"
       ],
@@ -259,24 +259,93 @@
         "workflow_file": null
       },
       "dependencies": [
-        "ohdsi-prompt-registry"
+        "ohdsi-prompt-registry",
+        "circe-cohort-check",
+        "omop-concept-grounding"
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"omop-phenotype-design @ git+ssh://git@github.com/AustralianCancerDataNetwork/omop-phenotype-design.git@v0.1.0\"",
-        "name": "omop-phenotype-design",
+        "install": "Access on request",
+        "name": "cohort-shape-guide",
         "version": "0.1.0"
       },
-      "id": "omop-phenotype-design",
+      "id": "cohort-shape-guide",
       "kind": "prompt-pack",
       "repository": {
         "access": "private",
-        "slug": "AustralianCancerDataNetwork/omop-phenotype-design",
-        "url": "https://github.com/AustralianCancerDataNetwork/omop-phenotype-design.git"
+        "slug": "AustralianCancerDataNetwork/cohort-shape-guide",
+        "url": "https://github.com/AustralianCancerDataNetwork/cohort-shape-guide.git"
       },
       "status": "planned",
-      "summary": "Content-only phenotype-design prompt pack for Circe cohort design and review with explicit shape decisions and validation handoffs.",
-      "title": "OMOP Phenotype Design",
+      "summary": "Guidance for OMOP cohort shape and logic decisions, grounded concepts, and Circe structural review.",
+      "title": "Cohort Shape Guide",
+      "visibility": "private"
+    },
+    {
+      "capabilities": [
+        "imaging-terminology-lookup",
+        "omop-imaging-concepts",
+        "prompt-pack"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.7.1,<1.0",
+        "matrix_enabled": false,
+        "python": ">=3.12",
+        "test_profile": "runtime-discovery",
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
+      },
+      "dependencies": [
+        "groundworkers"
+      ],
+      "distribution": {
+        "channel": "git",
+        "install": "Access on request",
+        "name": "gw-imaging-extension",
+        "version": "0.1.0"
+      },
+      "id": "gw-imaging-extension",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "private",
+        "slug": "AustralianCancerDataNetwork/gw-imaging-extension",
+        "url": "https://github.com/AustralianCancerDataNetwork/gw-imaging-extension.git"
+      },
+      "status": "planned",
+      "summary": "Private Groundworkers plugin for DICOM terminology lookup and related OMOP imaging concepts.",
+      "title": "Groundworkers Imaging Extension",
+      "visibility": "private"
+    },
+    {
+      "capabilities": [
+        "mapping-guidance",
+        "concept-granularity",
+        "terminology-mapping"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.7.1,<1.0",
+        "matrix_enabled": false,
+        "python": null,
+        "test_profile": "filesystem-pack",
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
+      },
+      "dependencies": [
+        "ohdsi-prompt-registry"
+      ],
+      "distribution": null,
+      "id": "kb-prompts",
+      "kind": "filesystem-pack",
+      "repository": {
+        "access": "private",
+        "slug": "AustralianCancerDataNetwork/kb-prompts",
+        "url": "https://github.com/AustralianCancerDataNetwork/kb-prompts.git"
+      },
+      "status": "planned",
+      "summary": "Private filesystem prompt packs with reusable mapping guidance for concept granularity, terminology mapping, and value representation.",
+      "title": "Knowledge Base Prompt Packs",
       "visibility": "private"
     },
     {
@@ -292,7 +361,7 @@
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -309,26 +378,26 @@
         "omop-llm"
       ],
       "distribution": {
-        "channel": "git",
-        "install": "uv add \"comparator-recommender @ git+ssh://git@github.com/AustralianCancerDataNetwork/comparator-recommender.git@v0.1.0\"",
+        "channel": "pypi",
+        "install": "uv add comparator-recommender==0.1.1",
         "name": "comparator-recommender",
-        "version": "0.1.0"
+        "version": "0.1.1"
       },
       "id": "comparator-recommender",
       "kind": "runtime-plugin",
       "repository": {
-        "access": "private",
+        "access": "public",
         "slug": "AustralianCancerDataNetwork/comparator-recommender",
         "url": "https://github.com/AustralianCancerDataNetwork/comparator-recommender.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Recommends pairwise comparator cohorts from a prepared catalogue.",
       "title": "Comparator Recommender",
-      "visibility": "private"
+      "visibility": "public"
     },
     {
       "capabilities": [
-        "clinical-quality-indicators",
+        "quality-indicator-configurations",
         "cohort-configuration",
         "concept-lookup",
         "prompt-pack"
@@ -340,7 +409,7 @@
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -358,7 +427,7 @@
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"cqi-workers @ git+ssh://git@github.com/AustralianCancerDataNetwork/cqi-workers.git@v0.1.0\"",
+        "install": "Access on request",
         "name": "cqi-workers",
         "version": "0.1.0"
       },
@@ -367,10 +436,10 @@
       "repository": {
         "access": "private",
         "slug": "AustralianCancerDataNetwork/cqi-workers",
-        "url": "git@github.com:AustralianCancerDataNetwork/cqi-workers.git"
+        "url": "https://github.com/AustralianCancerDataNetwork/cqi-workers.git"
       },
       "status": "planned",
-      "summary": "Groundworkers plugin exposing oa-cohorts clinical quality indicator configuration for inspection, concept lookup, and design.",
+      "summary": "Groundworkers plugin for inspecting and designing quality indicator configurations with concept lookup support.",
       "title": "CQI Workers",
       "visibility": "private"
     },
@@ -387,7 +456,7 @@
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -407,7 +476,7 @@
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"pbs-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/pbs-mapper.git@v0.1.0\"",
+        "install": "Access on request",
         "name": "pbs-mapper",
         "version": "0.1.0"
       },
@@ -425,8 +494,8 @@
     },
     {
       "capabilities": [
-        "eviq-regimen-mapping",
-        "hemonc-mapping",
+        "terminology-mapping",
+        "omop-mapping",
         "mapping-review"
       ],
       "compatibility": {
@@ -434,16 +503,7 @@
         "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
-        "tested": [
-          {
-            "groundworkers": "0.7.1",
-            "python": [
-              "3.12",
-              "3.13"
-            ],
-            "status": "planned"
-          }
-        ],
+        "tested": [],
         "workflow": null,
         "workflow_file": null
       },
@@ -456,7 +516,7 @@
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"eviq-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/eviq-mapper.git@v0.1.0\"",
+        "install": "Access on request",
         "name": "eviq-mapper",
         "version": "0.1.0"
       },
@@ -468,7 +528,7 @@
         "url": "https://github.com/AustralianCancerDataNetwork/eviq-mapper.git"
       },
       "status": "planned",
-      "summary": "Planned Groundworkers plugin for mapping eviQ regimen extracts to hemonc OMOP regimens.",
+      "summary": "Planned private plugin for mapping treatment regimen terminology to OMOP concepts. The repository currently contains a README only; implementation and release are planned.",
       "title": "eviQ Mapper",
       "visibility": "private"
     },
@@ -480,30 +540,21 @@
       ],
       "compatibility": {
         "groundworkers": ">=0.7.1,<1.0",
-        "matrix_enabled": true,
+        "matrix_enabled": false,
         "python": ">=3.12,<3.14",
         "test_profile": "runtime-discovery",
-        "tested": [
-          {
-            "groundworkers": "0.7.1",
-            "python": [
-              "3.12",
-              "3.13"
-            ],
-            "status": "planned"
-          }
-        ],
-        "workflow": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions",
-        "workflow_file": "compatibility.yml"
+        "tested": [],
+        "workflow": null,
+        "workflow_file": null
       },
       "dependencies": [
         "groundworkers"
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"ohdsi-onto-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git@v0.1.0\"",
+        "install": "Access on request",
         "name": "ohdsi-onto-bridge",
-        "version": "0.1.0"
+        "version": "0.2.1"
       },
       "id": "ohdsi-onto-bridge",
       "kind": "runtime-plugin",
@@ -512,7 +563,7 @@
         "slug": "AustralianCancerDataNetwork/ohdsi-onto-bridge",
         "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Traverses external ontologies (BioPortal-hosted or local OBO files) alongside the core CDM/graph/emb services.",
       "title": "OHDSI Onto-Bridge",
       "visibility": "private"
@@ -531,7 +582,7 @@
         "test_profile": "runtime-discovery",
         "tested": [
           {
-            "groundworkers": "0.7.1",
+            "groundworkers": "0.10.0",
             "python": [
               "3.12",
               "3.13"
@@ -548,7 +599,7 @@
       ],
       "distribution": {
         "channel": "git",
-        "install": "uv add \"ohdsi-umls-bridge @ git+ssh://git@github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git@v0.1.0\"",
+        "install": "Access on request",
         "name": "ohdsi-umls-bridge",
         "version": "0.1.0"
       },
@@ -559,7 +610,7 @@
         "slug": "AustralianCancerDataNetwork/ohdsi-umls-bridge",
         "url": "https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge.git"
       },
-      "status": "planned",
+      "status": "released",
       "summary": "Groundworkers plugin for UMLS search, NCIt resolution, terminology crosswalks, and mapping guidance.",
       "title": "OHDSI UMLS Bridge",
       "visibility": "private"

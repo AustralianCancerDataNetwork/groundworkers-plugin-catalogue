@@ -2,27 +2,31 @@
 
 The Groundworkers Plugin Catalogue is the release and compatibility index for the Groundworkers ecosystem. It describes the Groundworkers host, installable runtime plugins, prompt-pack distributions, and site-owned filesystem packs.
 
-The canonical source is [`catalogue/plugins.yaml`](catalogue/plugins.yaml). The validation tool generates filtered indexes under `dist/`, and the refresh workflow maintains the status table in this README. This repository must remain private while its canonical source contains private plugin metadata.
+The catalogue is public by design. It lists public and private components so readers can see what exists; private records contain non-sensitive summaries and compatibility metadata. Access to a private component and its release is by request.
+
+The canonical source is [`catalogue/plugins.yaml`](catalogue/plugins.yaml). The validator generates the indexes under `dist/`, and the refresh workflow maintains the status table below. `dist/public-index.json` contains public records only. `dist/private-index.json` contains every record, including private components, and is intentionally public; it is not an access-controlled index.
 
 ## Find a component
 
-The table below is generated from the canonical catalogue. The status symbol is the latest recorded catalogue verification state. A GitHub Actions badge is included when the component declares a `compatibility.yml` workflow; badges are live and may change without this README being regenerated.
+The table below is generated from the canonical catalogue. A GitHub Actions badge appears when a component declares a `compatibility.yml` workflow; badges are live and may change without this README being regenerated. A dash means no workflow is declared, not that compatibility has passed.
 
 <!-- BEGIN GENERATED PLUGIN STATUS -->
 | Component | Visibility | Kind | Target version | Groundworkers compatibility | CI status |
 | --- | --- | --- | --- | --- | --- |
-| Groundworkers | public | host | `0.8.0` | `host` | — |
+| Groundworkers | public | host | `0.10.0` | `host` | — |
 | Groundskeeping | public | host | `0.9.1` | `host` | — |
 | Groundstore | public | host | `0.5.0` | `host` | — |
 | OHDSI Prompt Registry | public | runtime-plugin | `0.5.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
-| Phenotype Validate | private | runtime-plugin | `0.1.0` | `>=0.7,<1` | — |
-| OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
-| OMOP Phenotype Design | private | prompt-pack | `0.1.0` | `>=0.7,<1` | — |
-| Comparator Recommender | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
+| Circe Cohort Definition Check | private | runtime-plugin | `0.1.0` | `>=0.7,<1` | — |
+| OMOP Concept Grounding | public | prompt-pack | `0.3.1` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
+| Cohort Shape Guide | private | prompt-pack | `0.1.0` | `>=0.7,<1` | — |
+| Groundworkers Imaging Extension | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
+| Knowledge Base Prompt Packs | private | filesystem-pack | `Git revision` | `>=0.7.1,<1.0` | — |
+| Comparator Recommender | public | runtime-plugin | `0.1.1` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/comparator-recommender/actions) |
 | CQI Workers | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/cqi-workers/actions) |
 | PBS Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/pbs-mapper/actions) |
 | eviQ Mapper | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | — |
-| OHDSI Onto-Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-onto-bridge/actions) |
+| OHDSI Onto-Bridge | private | runtime-plugin | `0.2.1` | `>=0.7.1,<1.0` | — |
 | OHDSI UMLS Bridge | private | runtime-plugin | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-umls-bridge/actions) |
 <!-- END GENERATED PLUGIN STATUS -->
 
@@ -40,25 +44,19 @@ The catalogue uses these component kinds:
 Use the installation command shown in the component's catalogue record. Public components install from PyPI:
 
 ```bash
-uv add groundworkers==0.7.1
-uv add ohdsi-prompt-registry==0.3.0
+uv add groundworkers==0.10.0
+uv add ohdsi-prompt-registry==0.5.0
 ```
 
-### Install a private component
+### Get access to a private component
 
-Private components are not on PyPI. Each `v*` tag publishes a GitHub Release, and the record's `install` field installs from that tag over SSH, so you need access to the component repository:
+Private components are not on the public installation path. Their catalogue records use `Access on request` instead of a private SSH install command. Contact the maintainers to request repository and release access.
 
-```bash
-uv add "pbs-mapper @ git+ssh://git@github.com/AustralianCancerDataNetwork/pbs-mapper.git@v0.1.0"
-```
-
-Install the host and any desired components into the same environment. After installation, configure the component according to its own README, start Groundworkers, and use `groundworkers --describe` to confirm that the package was discovered and whether it is active.
-
-Private components are not part of the public installation path. Their catalogue records are visible only to people with access to this repository and the corresponding source repository.
+Install the host and any desired components into the same environment. Catalogue dependencies include workflow prerequisites as well as Python packages; each component's package metadata defines its Python dependencies. After installation, configure the component according to its own README, start Groundworkers, and use `groundworkers --describe` to confirm that the package was discovered and whether it is active.
 
 ### Understand compatibility status
 
-The declared Groundworkers range describes what the component claims to support. The status symbol and workflow badge provide evidence about what has actually been tested. `unverified` means that no release-compatible result has been recorded; it does not mean that the component is known to be broken. Check the linked workflow for the exact component version, Groundworkers version, Python version, commit, and test result before adopting a planned or private component.
+The declared Groundworkers range describes intended support. A live workflow badge links to current test evidence; the catalogue does not cache a pass/fail result. Check the workflow for the exact component version, Groundworkers version, Python version, commit, and test result before adopting a component.
 
 The catalogue describes what can be installed. Groundworkers entry-point discovery describes what is installed in one environment, and `groundworkers --describe` describes what is active and configured in that environment. The catalogue never downloads or executes a package automatically.
 
@@ -67,30 +65,32 @@ The catalogue describes what can be installed. Groundworkers entry-point discove
 Add one record to [`catalogue/plugins.yaml`](catalogue/plugins.yaml) for each published component. Keep the record focused on information a user or compatibility job needs:
 
 - Use a stable, lower-case `id` that will not change when the display title changes.
-- Set `visibility` to `public` only when the source and installation path can be disclosed to public users; use `private` for internal components.
+- Set `visibility` to match the source repository. Private entries are public catalogue metadata, so keep their summaries and capabilities informative without including sensitive details.
 - Classify the component as `runtime-plugin`, `prompt-pack`, or `filesystem-pack`. Use `host` only for Groundworkers itself.
 - Record the source repository, distribution channel, released version, install command, capabilities, dependencies, and declared Groundworkers/Python ranges.
-- Use `distribution.channel: pypi` for public components only. Private components use `channel: git`: each `v*` tag builds the wheel and sdist, publishes them as a GitHub Release (via the reusable [`private-release.yml`](.github/workflows/private-release.yml) in this repo), and installs with `uv add "<name> @ git+ssh://git@github.com/<org>/<repo>.git@v<version>"`. The validator rejects `pypi` for private records.
-- Set `status: released` only when users can obtain the stated version. Keep future work as `planned`.
-- Leave `verification.status` as `unverified` until the required compatibility matrix has passed.
+- Use `distribution.channel: pypi` for public components and `git` for private distributions. Private `install` fields say `Access on request`; the catalogue does not publish private SSH commands.
+- Set `status: released` only when the stated version is available on PyPI or through a GitHub Release on that tag. Keep unreleased work as `planned`.
+- Mark compatibility as passed only after the required workflow matrix has passed.
 
 Every released runtime plugin or prompt-pack distribution should provide a `compatibility.yml` workflow that accepts the `groundworkers-compatibility` repository-dispatch event. The workflow contract and release gates are documented in [`docs/compatibility.md`](docs/compatibility.md).
 
 The catalogue's compatibility workflow dispatches requests to released components. The component repository owns the detailed test matrix and publishes the result through its normal GitHub Actions checks. First-party release automation should not publish a component until its required matrix is green.
 
-For a public component, add the repository and package metadata to the canonical catalogue, add its compatibility workflow, enable its matrix, and regenerate the projections and README. For a private component, keep the source URL, installation details, and status in this private repository; the generated public index will exclude the record.
+For a public component, add the repository and package metadata to the canonical catalogue, add its compatibility workflow, enable its matrix, and regenerate the projections and README. For a private component, use an access-on-request install field and remove sensitive details from its public metadata.
+
+The [public Groundworkers plugin template](https://github.com/AustralianCancerDataNetwork/gw-plugin-template) is a starting point for new runtime plugins, rather than a component to install, so it is linked here instead of listed in the catalogue. The private [gw-prompt-builder](https://github.com/AustralianCancerDataNetwork/gw-prompt-builder) is a Claude Code skill authoring toolkit; it does not run as a Groundworkers or Prompt Registry component and is out of scope for this catalogue.
 
 ## Current release set
 
-The records target Groundworkers `0.7.1` and Python `3.12`/`3.13`. Components marked `planned` have no release recorded yet: their ranges are declared, and their compatibility is shown by the live workflow badge.
+The records target Groundworkers `0.10.0` and Python `3.12`/`3.13`. `planned` means the listed version is not yet available as a PyPI release or a published GitHub Release. A declared range is not compatibility evidence; follow a live workflow badge for test results.
 
-### Planned phenotype components
+### Planned cohort workflow components
 
-`phenotype-validate` is a private runtime plugin for Circe validation, rendering, SQL text generation, and structural shape classification. `omop-phenotype-design` is a content-only distribution providing the `phenotype-design` prompt pack through the OHDSI Prompt Registry.
+`circe-cohort-check` is a private runtime plugin for Circe definition checks, rendering, SQL text generation, and structural shape classification. `cohort-shape-guide` provides guidance for cohort shape and logic decisions through the OHDSI Prompt Registry. It combines Groundworkers concept grounding with structural checks on a draft Circe definition.
 
-The design pack requires registry **0.5.0 or newer**. Its design/review workflow also needs the validator's `phenotype_validate_validate`, `phenotype_validate_render`, and `phenotype_validate_shape` tools, alongside Groundworkers concept and knowledge tools. The validator is a workflow requirement, not a Python dependency of the content pack.
+The guide requires registry **0.5.0 or newer**, the OMOP Concept Grounding pack, and the `circe_cohort_check_validate`, `circe_cohort_check_render`, and `circe_cohort_check_shape` tools. The concept-grounding pack and Circe Cohort Definition Check are workflow prerequisites rather than Python dependencies of the guide. Applications such as Study Agent can incorporate the guide while retaining their own review sessions, approval process, artifact generation, and execution.
 
-Both entries target an initial `0.1.0` release; their tag-based installation commands are future release targets. The design pack is planned for the private repository `AustralianCancerDataNetwork/omop-phenotype-design`. Compatibility dispatch remains disabled for both until their repositories provide the required workflow.
+Both entries target an initial `0.1.0` release. Their private source repositories are `AustralianCancerDataNetwork/circe-cohort-check` and `AustralianCancerDataNetwork/cohort-shape-guide`; access is by request. Compatibility dispatch remains disabled for both until their repositories provide the required workflow.
 
 ## Repository layout
 
@@ -104,7 +104,7 @@ scripts/
   validate_catalogue.py     # validate and generate filtered indexes
 dist/
   public-index.json         # generated public projection
-  private-index.json        # generated internal projection
+  private-index.json        # generated all-record projection, intentionally public
   compatibility-matrix.json # generated CI dispatch matrix
 .github/workflows/
   validate.yml              # validate source and generated files
