@@ -1,5 +1,5 @@
 {
-  "groundworkers": "0.8.0",
+  "groundworkers": "0.10.0",
   "include": [
     {
       "groundworkers": ">=0.7.1,<1.0",
@@ -59,18 +59,6 @@
         "3.13"
       ],
       "repository": "AustralianCancerDataNetwork/pbs-mapper",
-      "test_profile": "runtime-discovery"
-    },
-    {
-      "groundworkers": ">=0.7.1,<1.0",
-      "id": "ohdsi-onto-bridge",
-      "kind": "runtime-plugin",
-      "python": ">=3.12,<3.14",
-      "python_versions": [
-        "3.12",
-        "3.13"
-      ],
-      "repository": "AustralianCancerDataNetwork/ohdsi-onto-bridge",
       "test_profile": "runtime-discovery"
     },
     {

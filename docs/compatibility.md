@@ -43,13 +43,13 @@ The component repository owns its detailed matrix. The catalogue owns the list o
 
 Do not run the full Cartesian matrix on every pull request unless the component is small enough to make that practical. A minimum/latest/main smoke matrix on pull requests and the complete matrix on release candidates gives fast feedback without weakening the release gate.
 
-The catalogue targets Groundworkers `0.7.1` and Python `3.12`/`3.13`. Set `matrix_enabled: true` for a record when its repository has a `compatibility.yml` that accepts dispatch events. A released component qualifies automatically; a `planned` one qualifies only if it declares a `workflow_file`. Without that workflow, a dispatch is accepted by GitHub but runs nothing.
+The catalogue targets Groundworkers `0.10.0` and Python `3.12`/`3.13`. Set `matrix_enabled: true` for a record when its repository has a `compatibility.yml` that accepts dispatch events. A released component qualifies automatically; a `planned` one qualifies only if it declares a `workflow_file`. Without that workflow, a dispatch is accepted by GitHub but runs nothing.
 
 ## Reverse validation
 
 Groundworkers release CI should install each released catalogue component into a clean environment and verify that the host can discover and register it. Runtime-plugin checks should cover the `groundworkers.plugins` entry point, configuration entry points when present, plugin build behavior, and MCP tool registration. Prompt-pack checks should cover the registry entry point, pack discovery, manifest loading, and schema/resource publication.
 
-Private components may use an internal token and private package source for reverse validation. They should remain visible in the internal catalogue and should be advisory for a public Groundworkers release unless the release explicitly depends on them.
+Private components may use organization-managed authentication and a private package source for reverse validation. They remain visible in the public catalogue and should be advisory for a public Groundworkers release unless the release explicitly depends on them.
 
 ## README and generated views
 
