@@ -159,6 +159,54 @@
     },
     {
       "capabilities": [
+        "vocabulary-release-comparison",
+        "omop-vocabulary",
+        "fhir-to-omop",
+        "semantic-search"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.11,<0.12",
+        "matrix_enabled": false,
+        "python": ">=3.12",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.11.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "pass"
+          }
+        ],
+        "workflow": "https://github.com/OMOPHub/groundworkers-omophub/actions/workflows/compatibility.yml",
+        "workflow_file": "compatibility.yml"
+      },
+      "dependencies": [
+        "groundworkers",
+        "httpx",
+        "pydantic"
+      ],
+      "distribution": {
+        "channel": "pypi",
+        "install": "uv add groundworkers-omophub==0.3.0",
+        "name": "groundworkers-omophub",
+        "version": "0.3.0"
+      },
+      "id": "groundworkers-omophub",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "OMOPHub/groundworkers-omophub",
+        "url": "https://github.com/OMOPHub/groundworkers-omophub.git"
+      },
+      "status": "released",
+      "summary": "Compare a source code's active OMOP mappings across two hosted vocabulary releases and resolve FHIR codings against a pinned release.",
+      "title": "OMOPHub Hosted Vocabularies",
+      "visibility": "public"
+    },
+    {
+      "capabilities": [
         "cohort-validation",
         "cohort-rendering",
         "cohort-sql-generation",
