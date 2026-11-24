@@ -128,6 +128,42 @@ plugins:
     dependencies:
       - groundworkers
 
+  - id: groundworkers-omophub
+    title: OMOPHub Hosted Vocabularies
+    summary: Compare a source code's active OMOP mappings across two hosted vocabulary releases and resolve FHIR codings against a pinned release.
+    visibility: public
+    kind: runtime-plugin
+    status: planned
+    capabilities:
+      - vocabulary-release-comparison
+      - omop-vocabulary
+      - fhir-to-omop
+      - semantic-search
+    repository:
+      url: https://github.com/OMOPHub/groundworkers-omophub.git
+      slug: OMOPHub/groundworkers-omophub
+      access: public
+    distribution:
+      channel: git
+      name: groundworkers-omophub
+      version: 0.3.0
+      install: uv add "groundworkers-omophub @ git+https://github.com/OMOPHub/groundworkers-omophub.git@3316e923458e3f98b17f6da400aba887e183965b"
+    compatibility:
+      groundworkers: ">=0.11,<0.12"
+      python: ">=3.12"
+      test_profile: runtime-discovery
+      matrix_enabled: false
+      tested:
+        - groundworkers: 0.11.0
+          python: ["3.12", "3.13"]
+          status: pass
+      workflow: https://github.com/OMOPHub/groundworkers-omophub/actions/runs/45495931730
+      workflow_file: null
+    dependencies:
+      - groundworkers
+      - httpx
+      - pydantic
+
   - id: phenotype-validate
     title: Phenotype Validate
     summary: Read-only Circe cohort validation, Markdown rendering, SQL text generation, and phenotype-shape classification via OHDSI Circepy.

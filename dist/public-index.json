@@ -156,6 +156,54 @@
       "summary": "Registry and MCP discovery surface for reviewed OHDSI prompt workflows.",
       "title": "OHDSI Prompt Registry",
       "visibility": "public"
+    },
+    {
+      "capabilities": [
+        "vocabulary-release-comparison",
+        "omop-vocabulary",
+        "fhir-to-omop",
+        "semantic-search"
+      ],
+      "compatibility": {
+        "groundworkers": ">=0.11,<0.12",
+        "matrix_enabled": false,
+        "python": ">=3.12",
+        "test_profile": "runtime-discovery",
+        "tested": [
+          {
+            "groundworkers": "0.11.0",
+            "python": [
+              "3.12",
+              "3.13"
+            ],
+            "status": "pass"
+          }
+        ],
+        "workflow": "https://github.com/OMOPHub/groundworkers-omophub/actions/runs/45495931730",
+        "workflow_file": null
+      },
+      "dependencies": [
+        "groundworkers",
+        "httpx",
+        "pydantic"
+      ],
+      "distribution": {
+        "channel": "git",
+        "install": "uv add \"groundworkers-omophub @ git+https://github.com/OMOPHub/groundworkers-omophub.git@3316e923458e3f98b17f6da400aba887e183965b\"",
+        "name": "groundworkers-omophub",
+        "version": "0.3.0"
+      },
+      "id": "groundworkers-omophub",
+      "kind": "runtime-plugin",
+      "repository": {
+        "access": "public",
+        "slug": "OMOPHub/groundworkers-omophub",
+        "url": "https://github.com/OMOPHub/groundworkers-omophub.git"
+      },
+      "status": "planned",
+      "summary": "Compare a source code's active OMOP mappings across two hosted vocabulary releases and resolve FHIR codings against a pinned release.",
+      "title": "OMOPHub Hosted Vocabularies",
+      "visibility": "public"
     }
   ],
   "schema_version": 1

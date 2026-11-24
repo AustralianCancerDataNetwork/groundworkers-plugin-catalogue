@@ -15,6 +15,7 @@ The table below is generated from the canonical catalogue. The status symbol is 
 | Groundskeeping | public | host | `0.9.1` | `host` | — |
 | Groundstore | public | host | `0.5.0` | `host` | — |
 | OHDSI Prompt Registry | public | runtime-plugin | `0.5.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/ohdsi-prompt-registry/actions) |
+| OMOPHub Hosted Vocabularies | public | runtime-plugin | `0.3.0` | `>=0.11,<0.12` | [compatibility](https://github.com/OMOPHub/groundworkers-omophub/actions/runs/45495931730) |
 | Phenotype Validate | private | runtime-plugin | `0.1.0` | `>=0.7,<1` | — |
 | OMOP Concept Grounding | private | prompt-pack | `0.1.0` | `>=0.7.1,<1.0` | [![compatibility](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions/workflows/compatibility.yml/badge.svg?branch=main)](https://github.com/AustralianCancerDataNetwork/omop-concept-grounding/actions) |
 | OMOP Phenotype Design | private | prompt-pack | `0.1.0` | `>=0.7,<1` | — |
@@ -38,12 +39,34 @@ The catalogue uses these component kinds:
 
 ### Install a public component
 
-Use the installation command shown in the component's catalogue record. Public components install from PyPI:
+Use the installation command shown in the component's catalogue record. For components released on PyPI, install the published version:
 
 ```bash
 uv add groundworkers==0.7.1
 uv add ohdsi-prompt-registry==0.3.0
 ```
+
+### Compare two hosted OMOP vocabulary releases
+
+The OMOPHub runtime plugin lets a study team check whether a source code maps to different standard concepts after a vocabulary update. OMOPHub hosts both snapshots, so the comparison can run without importing either vocabulary into the site's CDM.
+
+For example, install the public Git revision in the `groundworkers-omophub` catalogue record in the environment that runs Groundworkers 0.11.x. Set `OMOPHUB_API_KEY` in the host environment, set `OMOPHUB_VOCAB_RELEASE=2026.2`, and restart Groundworkers. In an MCP client, call `omophub_compare_mappings` with these arguments:
+
+```json
+{
+  "vocabulary_id": "ICD10CM",
+  "concept_code": "D3A.022",
+  "baseline_release": "2024.2"
+}
+```
+
+Both releases resolve the source code to OMOP concept `45537907`. The response verifies each release and reports the change in active outgoing mappings:
+
+| Relationship | Removed since 2024.2 | Added in 2026.2 |
+| --- | --- | --- |
+| `Maps to` | `760937` | `1244590`, `1345982` |
+
+A team reviewing a concept set can use these IDs to check whether its inclusion criteria still capture the intended concepts. The same plugin also resolves FHIR codings against the configured release. [Plugin setup and example configuration](https://github.com/OMOPHub/groundworkers-omophub/blob/3316e923458e3f98b17f6da400aba887e183965b/README.md)
 
 ### Install a private component
 
