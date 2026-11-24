@@ -133,7 +133,7 @@ plugins:
     summary: Compare a source code's active OMOP mappings across two hosted vocabulary releases and resolve FHIR codings against a pinned release.
     visibility: public
     kind: runtime-plugin
-    status: planned
+    status: released
     capabilities:
       - vocabulary-release-comparison
       - omop-vocabulary
@@ -144,10 +144,10 @@ plugins:
       slug: OMOPHub/groundworkers-omophub
       access: public
     distribution:
-      channel: git
+      channel: pypi
       name: groundworkers-omophub
       version: 0.3.0
-      install: uv add "groundworkers-omophub @ git+https://github.com/OMOPHub/groundworkers-omophub.git@3316e923458e3f98b17f6da400aba887e183965b"
+      install: uv add groundworkers-omophub==0.3.0
     compatibility:
       groundworkers: ">=0.11,<0.12"
       python: ">=3.12"
@@ -157,8 +157,8 @@ plugins:
         - groundworkers: 0.11.0
           python: ["3.12", "3.13"]
           status: pass
-      workflow: https://github.com/OMOPHub/groundworkers-omophub/actions/runs/45495931730
-      workflow_file: null
+      workflow: https://github.com/OMOPHub/groundworkers-omophub/actions/workflows/compatibility.yml
+      workflow_file: compatibility.yml
     dependencies:
       - groundworkers
       - httpx
